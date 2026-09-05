@@ -6,102 +6,229 @@
   <title>Auravale Cosmetics - المتجر الرئيسي</title>
   <link rel="stylesheet" href="style.css?v=80">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+    :root {
+      --primary-color: #b59410;
+      --primary-hover: #967a0d;
+      --bg-color: #fcfbf7;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    .navbar {
-      background: #fff;
-      padding: 15px 30px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* Navbar Header */
+    .header {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .nav-brand {
-      font-size: 22px;
+
+    .brand-logo {
+      font-size: 24px;
       font-weight: bold;
-      color: #b59410;
+      color: var(--primary-color);
       text-decoration: none;
     }
-    .container {
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contact-info {
+      font-size: 14px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    /* Cart Icon & Badge */
+    .cart-btn {
+      position: relative;
+      background: var(--primary-color);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .cart-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    .cart-count {
+      background: #e74c3c;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 7px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* Banner / Hero Section */
+    .hero-banner {
       max-width: 1200px;
-      margin: 40px auto;
+      margin: 25px auto 10px auto;
       padding: 0 20px;
     }
-    .hero-title {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #333;
+
+    .hero-banner img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
+
+    /* Main Container & Products Grid */
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 26px;
+      color: var(--text-color);
+      margin-bottom: 35px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--primary-color);
+      margin: 8px auto 0 auto;
+      border-radius: 2px;
+    }
+
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 25px;
     }
+
     .product-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.06);
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #f0eada;
     }
+
     .product-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
     }
+
     .product-card img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 10px;
+      margin-bottom: 12px;
     }
+
     .product-title {
-      font-size: 16px;
-      margin: 15px 0 8px;
-      color: #333;
+      font-size: 17px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 10px;
     }
+
     .product-price {
-      font-size: 18px;
+      font-size: 19px;
       font-weight: bold;
-      color: #b59410;
+      color: var(--primary-color);
       margin-bottom: 15px;
     }
+
     .product-price span {
       text-decoration: line-through;
-      color: #aaa;
+      color: #a0a0a0;
       font-size: 14px;
       margin-right: 8px;
     }
+
     .btn-details {
-      display: block;
-      padding: 10px;
-      background: #b59410;
-      color: #fff;
+      display: inline-block;
+      width: 100%;
+      padding: 12px;
+      background: var(--primary-color);
+      color: #ffffff;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
       transition: background 0.3s;
     }
+
     .btn-details:hover {
-      background: #967a0d;
+      background: var(--primary-hover);
     }
   </style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <a href="index.html" class="nav-brand">Auravale Cosmetics</a>
-    <span>💬 للتواصل: 01106014523</span>
-  </nav>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">Auravale Cosmetics</a>
+      
+      <div class="header-actions">
+        <span class="contact-info">💬 للتواصل: 01106014523</span>
+        
+        <!-- Cart Button -->
+        <a href="cart.html" class="cart-btn" id="cartBtn">
+          🛒 السلة
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
+  <!-- Large Hero Banner -->
+  <div class="hero-banner">
+    <img src="banner.jpg" alt="Auravale Cosmetics Banner" onerror="this.src='revasure.jpg';">
+  </div>
+
+  <!-- Main Products Section -->
   <div class="container">
-    <h1 class="hero-title">منتجاتنا المميزة للعناية والجمال</h1>
+    <h1 class="section-title">منتجاتنا المميزة للعناية والجمال</h1>
     
     <div class="products-grid">
 
@@ -110,7 +237,7 @@
         <img src="evatar.jpg" alt="Evatar Cream">
         <h3 class="product-title">Evatar Cream</h3>
         <div class="product-price">88 ج.م <span>115 ج.م</span></div>
-        <a href="evatar.html" class="btn-details">عرض التفاصيل والطلب 🚀</a>
+        <a href="evatar.html" class="btn-details">🚀 عرض التفاصيل والطلب</a>
       </div>
 
       <!-- 2 -->
@@ -118,7 +245,7 @@
         <img src="revasure.jpg" alt="Revasure Skin Cleanser">
         <h3 class="product-title">Revasure Skin Cleanser</h3>
         <div class="product-price">195 ج.م <span>250 ج.م</span></div>
-        <a href="revasure.html" class="btn-details">عرض التفاصيل والطلب 🚀</a>
+        <a href="revasure.html" class="btn-details">🚀 عرض التفاصيل والطلب</a>
       </div>
 
       <!-- 3 -->
@@ -126,7 +253,7 @@
         <img src="jonacare.jpg" alt="Jonacare Cream SPF30">
         <h3 class="product-title">Jonacare Cream SPF30</h3>
         <div class="product-price">185 ج.م <span>240 ج.م</span></div>
-        <a href="jonacare.html" class="btn-details">عرض التفاصيل والطلب 🚀</a>
+        <a href="jonacare.html" class="btn-details">🚀 عرض التفاصيل والطلب</a>
       </div>
 
       <!-- 4 -->
@@ -134,7 +261,7 @@
         <img src="hairytec-tonic.jpg" alt="Hairytec Hair Tonic Lotion">
         <h3 class="product-title">Hairytec Hair Tonic Lotion</h3>
         <div class="product-price">225 ج.م <span>290 ج.م</span></div>
-        <a href="hairytec-tonic.html" class="btn-details">عرض التفاصيل والطلب 🚀</a>
+        <a href="hairytec-tonic.html" class="btn-details">🚀 عرض التفاصيل والطلب</a>
       </div>
 
       <!-- 5 -->
@@ -142,7 +269,7 @@
         <img src="hairytec-dandruff.jpg" alt="Hairytec Anti-Dandruff Shampoo">
         <h3 class="product-title">Hairytec Anti-Dandruff Shampoo</h3>
         <div class="product-price">180 ج.م <span>230 ج.م</span></div>
-        <a href="hairytec-dandruff.html" class="btn-details">عرض التفاصيل والطلب 🚀</a>
+        <a href="hairytec-dandruff.html" class="btn-details">🚀 عرض التفاصيل والطلب</a>
       </div>
 
       <!-- 6 -->
@@ -150,7 +277,7 @@
         <img src="hairytec-hairloss.jpg" alt="Hairytec Anti-Hairloss Shampoo">
         <h3 class="product-title">Hairytec Anti-Hairloss Shampoo</h3>
         <div class="product-price">185 ج.م <span>240 ج.م</span></div>
-        <a href="hairytec-hairloss.html" class="btn-details">عرض التفاصيل والطلب 🚀</a>
+        <a href="hairytec-hairloss.html" class="btn-details">🚀 عرض التفاصيل والطلب</a>
       </div>
 
       <!-- 7 -->
@@ -158,7 +285,7 @@
         <img src="vetasure.jpg" alt="Vetasure">
         <h3 class="product-title">Vetasure</h3>
         <div class="product-price">125 ج.م <span>160 ج.م</span></div>
-        <a href="vetasure.html" class="btn-details">عرض التفاصيل والطلب 🚀</a>
+        <a href="vetasure.html" class="btn-details">🚀 عرض التفاصيل والطلب</a>
       </div>
 
       <!-- 8 -->
@@ -166,7 +293,7 @@
         <img src="evatae.jpg" alt="Evatae Intimate Feminine Wash">
         <h3 class="product-title">Evatae Intimate Feminine Wash</h3>
         <div class="product-price">75 ج.م <span>100 ج.م</span></div>
-        <a href="evatae.html" class="btn-details">عرض التفاصيل والطلب 🚀</a>
+        <a href="evatae.html" class="btn-details">🚀 عرض التفاصيل والطلب</a>
       </div>
 
       <!-- 9 -->
@@ -174,7 +301,7 @@
         <img src="regton.jpg" alt="Regton">
         <h3 class="product-title">Regton</h3>
         <div class="product-price">135 ج.م <span>175 ج.م</span></div>
-        <a href="regton.html" class="btn-details">عرض التفاصيل والطلب 🚀</a>
+        <a href="regton.html" class="btn-details">🚀 عرض التفاصيل والطلب</a>
       </div>
 
       <!-- 10 -->
@@ -182,12 +309,23 @@
         <img src="altibro.jpg" alt="Altibro Hair Serum">
         <h3 class="product-title">Altibro Hair Serum</h3>
         <div class="product-price">220 ج.م <span>280 ج.م</span></div>
-        <a href="altibro.html" class="btn-details">عرض التفاصيل والطلب 🚀</a>
+        <a href="altibro.html" class="btn-details">🚀 عرض التفاصيل والطلب</a>
       </div>
 
     </div>
   </div>
 
+  <script>
+    // تحديث عداد السلة من LocalStorage إن وجد
+    function updateCartBadge() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+      document.getElementById('cartCount').textContent = totalItems;
+    }
+    updateCartBadge();
+  </script>
+
 </body>
 </html>
+
 
