@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auravale Cosmetics - المتجر الرئيسي</title>
-  <link rel="stylesheet" href="style.css?v=110">
+  <link rel="stylesheet" href="style.css?v=200">
   <style>
     :root {
       --primary-gold: #b59410;
@@ -104,7 +104,7 @@
       font-weight: bold;
     }
 
-    /* Category Filter Tabs (أزرار الأقسام) */
+    /* أزرار الخانات / الأقسام */
     .category-tabs {
       display: flex;
       justify-content: center;
@@ -114,12 +114,12 @@
     }
 
     .tab-btn {
-      padding: 8px 16px;
+      padding: 8px 14px;
       background: #ffffff;
       color: #555;
       border: 1px solid #ddd;
       border-radius: 20px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -132,7 +132,7 @@
       box-shadow: 0 2px 6px rgba(181, 148, 16, 0.3);
     }
 
-    /* Grid ليعرض منتجين بجانب بعضهما في الموبايل */
+    /* Grid منتجين بالصف */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -156,7 +156,6 @@
       flex-direction: column;
       justify-content: space-between;
       border: 1px solid #f0eada;
-      transition: opacity 0.3s ease;
     }
 
     .product-card.hidden {
@@ -252,7 +251,7 @@
   <div class="container">
     <h1 class="section-title">منتجاتنا المميزة للعناية والجمال</h1>
     
-    <!-- الأقسام والتصفية -->
+    <!-- الخانات الثلاث -->
     <div class="category-tabs">
       <button class="tab-btn active" onclick="filterProducts('all', this)">الكل</button>
       <button class="tab-btn" onclick="filterProducts('skincare', this)">العناية بالبشرة</button>
@@ -261,7 +260,7 @@
 
     <div class="products-grid">
 
-      <!-- 1: Evatar Cream (بشرة) -->
+      <!-- 1 -->
       <div class="product-card" data-category="skincare">
         <img src="evatar.jpg" alt="Evatar Cream">
         <h3 class="product-title">Evatar Cream</h3>
@@ -272,7 +271,7 @@
         </div>
       </div>
 
-      <!-- 2: Revasure Cleanser (بشرة) -->
+      <!-- 2 -->
       <div class="product-card" data-category="skincare">
         <img src="revasure.jpg" alt="Revasure Skin Cleanser">
         <h3 class="product-title">Revasure Skin Cleanser</h3>
@@ -283,7 +282,7 @@
         </div>
       </div>
 
-      <!-- 3: Jonacare Cream (بشرة) -->
+      <!-- 3 -->
       <div class="product-card" data-category="skincare">
         <img src="jonacare.jpg" alt="Jonacare Cream SPF30">
         <h3 class="product-title">Jonacare Cream SPF30</h3>
@@ -294,7 +293,7 @@
         </div>
       </div>
 
-      <!-- 4: Hairytec Hair Tonic (شعر) -->
+      <!-- 4 -->
       <div class="product-card" data-category="haircare">
         <img src="hairytec-tonic.jpg" alt="Hairytec Hair Tonic Lotion">
         <h3 class="product-title">Hairytec Hair Tonic Lotion</h3>
@@ -305,7 +304,7 @@
         </div>
       </div>
 
-      <!-- 5: Hairytec Anti-Dandruff (شعر) -->
+      <!-- 5 -->
       <div class="product-card" data-category="haircare">
         <img src="hairytec-dandruff.jpg" alt="Hairytec Anti-Dandruff Shampoo">
         <h3 class="product-title">Hairytec Anti-Dandruff Shampoo</h3>
@@ -316,7 +315,7 @@
         </div>
       </div>
 
-      <!-- 6: Hairytec Anti-Hairloss (شعر) -->
+      <!-- 6 -->
       <div class="product-card" data-category="haircare">
         <img src="hairytec-hairloss.jpg" alt="Hairytec Anti-Hairloss Shampoo">
         <h3 class="product-title">Hairytec Anti-Hairloss Shampoo</h3>
@@ -327,7 +326,7 @@
         </div>
       </div>
 
-      <!-- 7: Vetasure (بشرة) -->
+      <!-- 7 -->
       <div class="product-card" data-category="skincare">
         <img src="vetasure.jpg" alt="Vetasure">
         <h3 class="product-title">Vetasure</h3>
@@ -338,7 +337,7 @@
         </div>
       </div>
 
-      <!-- 8: Evatae Wash (بشرة) -->
+      <!-- 8 -->
       <div class="product-card" data-category="skincare">
         <img src="evatae.jpg" alt="Evatae Intimate Feminine Wash">
         <h3 class="product-title">Evatae Intimate Feminine Wash</h3>
@@ -349,7 +348,7 @@
         </div>
       </div>
 
-      <!-- 9: Regton (شعر) -->
+      <!-- 9 -->
       <div class="product-card" data-category="haircare">
         <img src="regton.jpg" alt="Regton">
         <h3 class="product-title">Regton</h3>
@@ -360,7 +359,7 @@
         </div>
       </div>
 
-      <!-- 10: Altibro Serum (شعر) -->
+      <!-- 10 -->
       <div class="product-card" data-category="haircare">
         <img src="altibro.jpg" alt="Altibro Hair Serum">
         <h3 class="product-title">Altibro Hair Serum</h3>
@@ -375,14 +374,11 @@
   </div>
 
   <script>
-    // دالة تصفية المنتجات حسب القسم
     function filterProducts(category, element) {
-      // تغيير الزر النشط
       const tabs = document.querySelectorAll('.tab-btn');
       tabs.forEach(tab => tab.classList.remove('active'));
       element.classList.add('active');
 
-      // إظهار وإخفاء المنتجات
       const cards = document.querySelectorAll('.product-card');
       cards.forEach(card => {
         if (category === 'all' || card.getAttribute('data-category') === category) {
@@ -419,4 +415,3 @@
 
 </body>
 </html>
-
