@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evatar Cream - Auravale Cosmetics</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .product-details-container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      border: 2px solid #d4af37;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+    
+    @media (max-width: 768px) {
+      .product-details-container { grid-template-columns: 1fr; }
+    }
+
+    .product-image-box img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: contain;
+      max-height: 400px;
+    }
+
+    .product-info-box h1 {
+      color: #b59410;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .price-tag {
+      font-size: 1.5rem;
+      color: #b59410;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .description {
+      color: #4a3c31;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .order-form {
+      background: #fcfbf8;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #eae1d1;
+    }
+
+    .order-form h3 {
+      color: #4a3c31;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+      text-align: right;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #4a3c31;
+      font-weight: bold;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    .submit-order-btn {
+      background-color: #25d366;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .direct-whatsapp-btn {
+      display: block;
+      text-align: center;
+      background-color: #8a7b9c;
+      color: white;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- زر العودة -->
+  <div style="max-width: 1000px; margin: 20px auto 0;">
+    <a href="index.html" style="color: #b59410; text-decoration: none; font-weight: bold; font-size: 1.1rem;">← العودة للمتجر الرئيسي</a>
+  </div>
+
+  <!-- تفاصيل المنتج والطلب -->
+  <div class="product-details-container">
+    
+    <!-- صورة المنتج -->
+    <div class="product-image-box">
+      <img src="evatar.jpg" alt="Evatar Cream">
+    </div>
+
+    <!-- تفاصيل ونموذج الطلب -->
+    <div class="product-info-box">
+      <h1>Evatar Cream</h1>
+      <div class="price-tag">88 ج.م <span style="text-decoration: line-through; font-size: 1rem; color: #a89a8a; margin-right: 10px;">115 ج.م</span></div>
+      
+      <!-- شرح المنتج -->
+      <p class="description">
+        كريم إيفاتار المميز لترطيب وتجديد خلايا البشرة. يعمل على إعطاء البشرة النضارة الفورية والنعومة طوال اليوم بفضل تركيبته الغنية بالزيوت والفيتامينات الطبيعية. مناسب لجميع انواع البشرة.
+      </p>
+
+      <!-- نموذج الطلب -->
+      <div class="order-form">
+        <h3>أدخل بياناتك لإتمام الطلب:</h3>
+        <form id="orderForm">
+          <div class="form-group">
+            <label>الاسم بالكامل:</label>
+            <input type="text" id="custName" required placeholder="أدخل اسمك الكريم">
+          </div>
+          <div class="form-group">
+            <label>رقم الهاتف:</label>
+            <input type="tel" id="custPhone" required placeholder="رقم الموبايل للتواصل">
+          </div>
+          <div class="form-group">
+            <label>العنوان بالتفصيل:</label>
+            <textarea id="custAddress" rows="2" required placeholder="المحافظة - المدينة - الشارع"></textarea>
+          </div>
+
+          <!-- زر إرسال الطلب عبر واتساب بالبيانات -->
+          <button type="button" class="submit-order-btn" onclick="sendOrderData()">إرسال الطلب عبر واتساب 💬</button>
+        </form>
+
+        <!-- أو التواصل السريع بدون بيانات -->
+        <a href="https://wa.me/201000000000?text=مرحباً،%20أريد%20الاستفسار%20عن%20منتج%20Evatar%20Cream" target="_blank" class="direct-whatsapp-btn">تحدث معنا مباشرة على الواتساب 📲</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function sendOrderData() {
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+
+      if (!name || !phone || !address) {
+        alert('من فضلك اكتب جميع البيانات أولاً!');
+        return;
+      }
+
+      // تجهيز نص الرسالة للواتساب
+      const message = `طلب جديد لمنتج: Evatar Cream\n` +
+                      `-------------------\n` +
+                      `الاسم: ${name}\n` +
+                      `التليفون: ${phone}\n` +
+                      `العنوان: ${address}\n` +
+                      `السعر: 88 ج.م`;
+
+      const myWhatsAppNumber = "201000000000"; // استبدل برقم هاتفك الحقيقي (مع كود 20 لمصر)
+      
+      window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
