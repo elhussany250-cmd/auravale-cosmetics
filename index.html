@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auravale Cosmetics - متجر العناية بالبشرة والشعر</title>
- <link rel="stylesheet" href="style.css?v=2">
+  <title>Auravale Cosmetics - العناية بالبشرة والشعر</title>
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -14,10 +14,9 @@
     <button class="cart-btn-nav" onclick="toggleCart()">🛒 السلة (<span id="cart-count">0</span>)</button>
   </nav>
 
-  <!-- رأس الصفحة -->
+  <!-- هيدر بسيط وأنيق بدون إطارات حادة -->
   <header class="main-header">
-    <h1>Auravale Cosmetics</h1>
-    <p>أفضل منتجات العناية بالبشرة والشعر</p>
+    <p class="subtitle">أفضل منتجات العناية بالبشرة والشعر</p>
   </header>
 
   <!-- عرض المنتجات -->
@@ -79,90 +78,6 @@
       </div>
     </div>
 
-    <!-- 5. Hairytec Anti-Dandruff -->
-    <div class="product-card">
-      <img src="hairytec-dandruff.jpg" alt="Hairytec Anti-Dandruff">
-      <h3 class="product-title">Hairytec Anti-Dandruff Shampoo</h3>
-      <div class="price-container">
-        <span class="old-price">230 ج.م</span>
-        <span class="current-price">180 ج.م</span>
-      </div>
-      <div class="card-actions">
-        <a href="hairytec-dandruff.html" class="details-link">اطلب الآن / التفاصيل</a>
-        <button class="add-cart-btn" onclick="addToCart('Hairytec Anti-Dandruff Shampoo', 180)">إضافة للسلة 🛒</button>
-      </div>
-    </div>
-
-    <!-- 6. Hairytec Anti-Hairloss -->
-    <div class="product-card">
-      <img src="hairytec-hairloss.jpg" alt="Hairytec Anti-Hairloss">
-      <h3 class="product-title">Hairytec Anti-Hairloss Shampoo</h3>
-      <div class="price-container">
-        <span class="old-price">240 ج.م</span>
-        <span class="current-price">185 ج.م</span>
-      </div>
-      <div class="card-actions">
-        <a href="hairytec-hairloss.html" class="details-link">اطلب الآن / التفاصيل</a>
-        <button class="add-cart-btn" onclick="addToCart('Hairytec Anti-Hairloss Shampoo', 185)">إضافة للسلة 🛒</button>
-      </div>
-    </div>
-
-    <!-- 7. Vetasure -->
-    <div class="product-card">
-      <img src="vetasure.jpg" alt="Vetasure">
-      <h3 class="product-title">Vetasure</h3>
-      <div class="price-container">
-        <span class="old-price">160 ج.م</span>
-        <span class="current-price">125 ج.م</span>
-      </div>
-      <div class="card-actions">
-        <a href="vetasure.html" class="details-link">اطلب الآن / التفاصيل</a>
-        <button class="add-cart-btn" onclick="addToCart('Vetasure', 125)">إضافة للسلة 🛒</button>
-      </div>
-    </div>
-
-    <!-- 8. Evatae Feminine Wash -->
-    <div class="product-card">
-      <img src="evatae.jpg" alt="Evatae Feminine Wash">
-      <h3 class="product-title">Evatae Intimate Feminine Wash</h3>
-      <div class="price-container">
-        <span class="old-price">100 ج.م</span>
-        <span class="current-price">75 ج.م</span>
-      </div>
-      <div class="card-actions">
-        <a href="evatae.html" class="details-link">اطلب الآن / التفاصيل</a>
-        <button class="add-cart-btn" onclick="addToCart('Evatae Feminine Wash', 75)">إضافة للسلة 🛒</button>
-      </div>
-    </div>
-
-    <!-- 9. Regton -->
-    <div class="product-card">
-      <img src="regton.jpg" alt="Regton">
-      <h3 class="product-title">Regton</h3>
-      <div class="price-container">
-        <span class="old-price">175 ج.م</span>
-        <span class="current-price">135 ج.م</span>
-      </div>
-      <div class="card-actions">
-        <a href="regton.html" class="details-link">اطلب الآن / التفاصيل</a>
-        <button class="add-cart-btn" onclick="addToCart('Regton', 135)">إضافة للسلة 🛒</button>
-      </div>
-    </div>
-
-    <!-- 10. Altibro Hair Serum -->
-    <div class="product-card">
-      <img src="altibro.jpg" alt="Altibro Hair Serum">
-      <h3 class="product-title">Altibro Hair Serum</h3>
-      <div class="price-container">
-        <span class="old-price">280 ج.م</span>
-        <span class="current-price">220 ج.م</span>
-      </div>
-      <div class="card-actions">
-        <a href="altibro.html" class="details-link">اطلب الآن / التفاصيل</a>
-        <button class="add-cart-btn" onclick="addToCart('Altibro Hair Serum', 220)">إضافة للسلة 🛒</button>
-      </div>
-    </div>
-
   </main>
 
   <!-- النافذة الجانبية للسلة -->
@@ -214,7 +129,7 @@
       });
       message += `\nالإجمالي: ${total} ج.م`;
       
-      const phone = "201000000000"; // استبدل برقم هاتفك الحقيقي
+      const phone = "201000000000"; // اكتب رقمك هنا
       window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
     }
   </script>
