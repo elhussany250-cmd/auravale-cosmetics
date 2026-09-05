@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auravale Cosmetics - العناية بالبشرة والشعر</title>
-  <!-- تم تغيير رقم الإصدار هنا لـ 50 لإجبار المتصفح على التحديث -->
-  <link rel="stylesheet" href="style.css?v=50">
+  <link rel="stylesheet" href="style.css?v=60">
 </head>
 <body>
 
@@ -176,17 +175,55 @@
         <span>الإجمالي:</span>
         <span><span id="cart-total-price">0</span> ج.م</span>
       </div>
-      <button class="checkout-btn" style="width: 100%; padding: 12px; background: #25d366; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 15px; margin-bottom: 10px;" onclick="checkoutWhatsApp()">إتمام الطلب عبر واتساب 💬</button>
       
-      <!-- زر إغلاق أنيق ومتناسق -->
-      <button onclick="toggleCart()" style="width: 100%; padding: 10px; background: transparent; color: #b59410; border: 1.5px solid #b59410; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; transition: all 0.3s ease; letter-spacing: 0.5px;" onmouseover="this.style.background='#b59410'; this.style.color='#ffffff';" onmouseout="this.style.background='transparent'; this.style.color='#b59410';">
-        إغلاق النافذة
-      </button>
+      <!-- زر التوجه لصفحة ملء البيانات -->
+      <button class="checkout-btn" style="width: 100%; padding: 12px; background: #b59410; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 15px; margin-bottom: 8px;" onclick="openCheckoutModal()">إتمام الشراء ومحاسبة 🛍️</button>
+
+      <!-- زر الاستفسار عبر الواتساب مباشرة -->
+      <button style="width: 100%; padding: 10px; background: #25d366; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px; margin-bottom: 8px;" onclick="directWhatsAppChat()">تحدث معنا عبر الواتساب 💬</button>
+      
+      <!-- زر الإغلاق -->
+      <button onclick="toggleCart()" style="width: 100%; padding: 8px; background: transparent; color: #b59410; border: 1.5px solid #b59410; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: bold;">إغلاق النافذة</button>
     </div>
   </div>
 
-  <!-- سكربت التحكم بالسلة -->
+  <!-- نافذة ملء بيانات الشحن (Modal Popup) -->
+  <div id="checkout-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; padding: 15px; box-sizing: border-box;">
+    <div style="background: #fff; border-radius: 12px; padding: 25px; width: 100%; max-width: 450px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); position: relative;">
+      
+      <button onclick="closeCheckoutModal()" style="position: absolute; top: 15px; left: 15px; background: none; border: none; font-size: 18px; cursor: pointer; color: #888;">✕</button>
+      
+      <h3 style="color: #b59410; margin-top: 0; margin-bottom: 15px; text-align: center;">إكمال بيانات الشحن 📦</h3>
+      
+      <form onsubmit="sendOrderViaWhatsApp(event)">
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px;">الاسم بالكامل *</label>
+          <input type="text" id="cust-name" required placeholder="أدخل اسمك الثلاثي" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px;">رقم الهاتف *</label>
+          <input type="tel" id="cust-phone" required placeholder="01xxxxxxxxx" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px;">المحافظة *</label>
+          <input type="text" id="cust-city" required placeholder="مثال: القاهرة / الإسكندرية" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label style="display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px;">العنوان التفصيلي *</label>
+          <textarea id="cust-address" required rows="2" placeholder="المنطقة - اسم الشارع - رقم المبنى/الفيلا" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; resize: none;"></textarea>
+        </div>
+
+        <button type="submit" style="width: 100%; padding: 12px; background: #25d366; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer;">تأكيد وإرسال الطلب للواتساب 🚀</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- سكربت التحكم بالعملية -->
   <script>
+    const PHONE_NUMBER = "201106014523"; // ⚠️ غيّر هذا الرقم برقم هاتفك المخصص للواتساب
     let cart = [];
 
     function addToCart(title, price) {
@@ -210,11 +247,9 @@
         total += item.price;
         const li = document.createElement('li');
         li.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee;';
-        
-        /* تم إضافة !important للأنماط لحظر أي لون أحمر مقبل من ملف style.css */
         li.innerHTML = `
           <div style="display: flex; align-items: center; gap: 8px;">
-            <button onclick="removeFromCart(${index})" style="background-color: #e2e8f0 !important; color: #4a5568 !important; border: none !important; border-radius: 50% !important; width: 20px !important; height: 20px !important; min-width: 20px !important; cursor: pointer !important; font-size: 11px !important; display: flex !important; align-items: center !important; justify-content: center !important; line-height: 1 !important; transition: all 0.2s ease !important; padding: 0 !important;" onmouseover="this.style.backgroundColor='#cbd5e0 !important'" onmouseout="this.style.backgroundColor='#e2e8f0 !important'">✕</button>
+            <button onclick="removeFromCart(${index})" style="background-color: #e2e8f0 !important; color: #4a5568 !important; border: none !important; border-radius: 50% !important; width: 20px !important; height: 20px !important; cursor: pointer !important; font-size: 11px !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0 !important;">✕</button>
             <b style="color: #b59410; font-size: 13px;">${item.price} ج.م</b>
           </div>
           <span style="font-size: 13px; font-weight: 500;">${item.title}</span>
@@ -229,23 +264,56 @@
       document.getElementById('cart-sidebar').classList.toggle('active');
     }
 
-    function checkoutWhatsApp() {
+    function openCheckoutModal() {
       if (cart.length === 0) {
         alert('السلة فارغة!');
         return;
       }
-      let message = 'مرحباً، أريد طلب المنتجات التالية:\n\n';
+      document.getElementById('checkout-modal').style.display = 'flex';
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').style.display = 'none';
+    }
+
+    // إرسال الطلب بالبيانات المكتملة عبر الواتساب
+    function sendOrderViaWhatsApp(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('cust-name').value;
+      const phone = document.getElementById('cust-phone').value;
+      const city = document.getElementById('cust-city').value;
+      const address = document.getElementById('cust-address').value;
+
+      let message = `🛒 *طلب جديد من المتجر*\n`;
+      message += `-------------------------\n`;
+      message += `👤 *الاسم:* ${name}\n`;
+      message += `📞 *الهاتف:* ${phone}\n`;
+      message += `📍 *المحافظة:* ${city}\n`;
+      message += `🏠 *العنوان:* ${address}\n`;
+      message += `-------------------------\n`;
+      message += `📦 *المنتجات المطلوبة:*\n`;
+
       let total = 0;
       cart.forEach((item, index) => {
         message += `${index + 1}. ${item.title} - ${item.price} ج.م\n`;
         total += item.price;
       });
-      message += `\nالإجمالي: ${total} ج.م`;
-      
-      const phone = "201106014523"; // اكتب رقم هاتفك هنا
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+
+      message += `-------------------------\n`;
+      message += `💰 *الإجمالي:* ${total} ج.م`;
+
+      window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+      closeCheckoutModal();
+    }
+
+    // تحدث معنا مباشر عبر الواتساب بدون نموذج
+    function directWhatsAppChat() {
+      const msg = "مرحباً Auravale Cosmetics، لدي استفسار بخصوص المنتجات.";
+      window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }
   </script>
 
 </body>
 </html>
+
