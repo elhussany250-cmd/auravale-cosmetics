@@ -173,50 +173,71 @@
     <button class="close-cart-btn" onclick="toggleCart()">إغلاق</button>
   </div>
 
-  <script>
-    let cart = [];
+ <script>
+  let cart = [];
 
-    function addToCart(title, price) {
-      cart.push({ title, price });
-      updateCartUI();
-      alert('تمت إضافة ' + title + ' إلى السلة!');
-    }
+  // إضافة منتج للسلة
+  function addToCart(title, price) {
+    cart.push({ title, price });
+    updateCartUI();
+    alert('تمت إضافة ' + title + ' إلى السلة!');
+  }
 
-    function updateCartUI() {
-      document.getElementById('cart-count').innerText = cart.length;
-      const cartList = document.getElementById('cart-items');
-      cartList.innerHTML = '';
-      let total = 0;
-      cart.forEach((item) => {
-        total += item.price;
-        const li = document.createElement('li');
-        li.innerHTML = `<span>${item.title}</span> <b>${item.price} ج.م</b>`;
-        cartList.appendChild(li);
-      });
-      document.getElementById('cart-total-price').innerText = total;
-    }
+  // حذف منتج معين من السلة
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+  }
 
-    function toggleCart() {
-      document.getElementById('cart-sidebar').classList.toggle('active');
-    }
+  // تحديث واجهة السلة (العداد + القائمة + الإجمالي)
+  function updateCartUI() {
+    document.getElementById('cart-count').innerText = cart.length;
+    const cartList = document.getElementById('cart-items');
+    cartList.innerHTML = '';
+    
+    let total = 0;
+    cart.forEach((item, index) => {
+      total += item.price;
+      const li = document.createElement('li');
+      li.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #eee;';
+      li.innerHTML = `
+        <span style="font-size: 14px;">${item.title}</span>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <b style="color: #b59410;">${item.price} ج.م</b>
+          <button onclick="removeFromCart(${index})" style="background: #ff4d4d; color: white; border: none; border-radius: 4px; padding: 2px 8px; cursor: pointer; font-size: 12px;">✕</button>
+        </div>
+      `;
+      cartList.appendChild(li);
+    });
+    
+    document.getElementById('cart-total-price').innerText = total;
+  }
 
-    function checkoutWhatsApp() {
-      if (cart.length === 0) {
-        alert('السلة فارغة!');
-        return;
-      }
-      let message = 'مرحباً، أريد طلب المنتجات التالية:\n';
-      let total = 0;
-      cart.forEach((item, index) => {
-        message += `${index + 1}. ${item.title} - ${item.price} ج.م\n`;
-        total += item.price;
-      });
-      message += `\nالإجمالي: ${total} ج.م`;
-      
-      const phone = "201106014523";
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+  // فتح وإغلاق السلة الجانبية
+  function toggleCart() {
+    document.getElementById('cart-sidebar').classList.toggle('active');
+  }
+
+  // إرسال الطلب عبر الواتساب
+  function checkoutWhatsApp() {
+    if (cart.length === 0) {
+      alert('السلة فارغة!');
+      return;
     }
-  </script>
+    let message = 'مرحباً، أريد طلب المنتجات التالية:\n\n';
+    let total = 0;
+    cart.forEach((item, index) => {
+      message += `${index + 1}. ${item.title} - ${item.price} ج.م\n`;
+      total += item.price;
+    });
+    message += `\nالإجمالي: ${total} ج.م`;
+    
+    // استبدل هذا الرقم برقم الواتساب الخاص بك
+    const phone = "201000000000"; 
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+  }
+</script>
+
 
 </body>
 </html>
