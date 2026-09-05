@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auravale Cosmetics - المتجر الرئيسي</title>
-  <link rel="stylesheet" href="style.css?v=100">
+  <link rel="stylesheet" href="style.css?v=110">
   <style>
     :root {
       --primary-gold: #b59410;
@@ -104,6 +104,34 @@
       font-weight: bold;
     }
 
+    /* Category Filter Tabs (أزرار الأقسام) */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 8px 16px;
+      background: #ffffff;
+      color: #555;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--primary-gold);
+      color: #ffffff;
+      border-color: var(--primary-gold);
+      box-shadow: 0 2px 6px rgba(181, 148, 16, 0.3);
+    }
+
     /* Grid ليعرض منتجين بجانب بعضهما في الموبايل */
     .products-grid {
       display: grid;
@@ -128,6 +156,11 @@
       flex-direction: column;
       justify-content: space-between;
       border: 1px solid #f0eada;
+      transition: opacity 0.3s ease;
+    }
+
+    .product-card.hidden {
+      display: none !important;
     }
 
     .product-card img {
@@ -219,10 +252,17 @@
   <div class="container">
     <h1 class="section-title">منتجاتنا المميزة للعناية والجمال</h1>
     
+    <!-- الأقسام والتصفية -->
+    <div class="category-tabs">
+      <button class="tab-btn active" onclick="filterProducts('all', this)">الكل</button>
+      <button class="tab-btn" onclick="filterProducts('skincare', this)">العناية بالبشرة</button>
+      <button class="tab-btn" onclick="filterProducts('haircare', this)">العناية بالشعر</button>
+    </div>
+
     <div class="products-grid">
 
-      <!-- 1 -->
-      <div class="product-card">
+      <!-- 1: Evatar Cream (بشرة) -->
+      <div class="product-card" data-category="skincare">
         <img src="evatar.jpg" alt="Evatar Cream">
         <h3 class="product-title">Evatar Cream</h3>
         <div class="product-price">88 ج.م <span>115 ج.م</span></div>
@@ -232,8 +272,8 @@
         </div>
       </div>
 
-      <!-- 2 -->
-      <div class="product-card">
+      <!-- 2: Revasure Cleanser (بشرة) -->
+      <div class="product-card" data-category="skincare">
         <img src="revasure.jpg" alt="Revasure Skin Cleanser">
         <h3 class="product-title">Revasure Skin Cleanser</h3>
         <div class="product-price">195 ج.م <span>250 ج.م</span></div>
@@ -243,8 +283,8 @@
         </div>
       </div>
 
-      <!-- 3 -->
-      <div class="product-card">
+      <!-- 3: Jonacare Cream (بشرة) -->
+      <div class="product-card" data-category="skincare">
         <img src="jonacare.jpg" alt="Jonacare Cream SPF30">
         <h3 class="product-title">Jonacare Cream SPF30</h3>
         <div class="product-price">185 ج.م <span>240 ج.م</span></div>
@@ -254,8 +294,8 @@
         </div>
       </div>
 
-      <!-- 4 -->
-      <div class="product-card">
+      <!-- 4: Hairytec Hair Tonic (شعر) -->
+      <div class="product-card" data-category="haircare">
         <img src="hairytec-tonic.jpg" alt="Hairytec Hair Tonic Lotion">
         <h3 class="product-title">Hairytec Hair Tonic Lotion</h3>
         <div class="product-price">225 ج.م <span>290 ج.م</span></div>
@@ -265,8 +305,8 @@
         </div>
       </div>
 
-      <!-- 5 -->
-      <div class="product-card">
+      <!-- 5: Hairytec Anti-Dandruff (شعر) -->
+      <div class="product-card" data-category="haircare">
         <img src="hairytec-dandruff.jpg" alt="Hairytec Anti-Dandruff Shampoo">
         <h3 class="product-title">Hairytec Anti-Dandruff Shampoo</h3>
         <div class="product-price">180 ج.م <span>230 ج.م</span></div>
@@ -276,8 +316,8 @@
         </div>
       </div>
 
-      <!-- 6 -->
-      <div class="product-card">
+      <!-- 6: Hairytec Anti-Hairloss (شعر) -->
+      <div class="product-card" data-category="haircare">
         <img src="hairytec-hairloss.jpg" alt="Hairytec Anti-Hairloss Shampoo">
         <h3 class="product-title">Hairytec Anti-Hairloss Shampoo</h3>
         <div class="product-price">185 ج.م <span>240 ج.م</span></div>
@@ -287,8 +327,8 @@
         </div>
       </div>
 
-      <!-- 7 -->
-      <div class="product-card">
+      <!-- 7: Vetasure (بشرة) -->
+      <div class="product-card" data-category="skincare">
         <img src="vetasure.jpg" alt="Vetasure">
         <h3 class="product-title">Vetasure</h3>
         <div class="product-price">125 ج.م <span>160 ج.م</span></div>
@@ -298,8 +338,8 @@
         </div>
       </div>
 
-      <!-- 8 -->
-      <div class="product-card">
+      <!-- 8: Evatae Wash (بشرة) -->
+      <div class="product-card" data-category="skincare">
         <img src="evatae.jpg" alt="Evatae Intimate Feminine Wash">
         <h3 class="product-title">Evatae Intimate Feminine Wash</h3>
         <div class="product-price">75 ج.م <span>100 ج.م</span></div>
@@ -309,8 +349,8 @@
         </div>
       </div>
 
-      <!-- 9 -->
-      <div class="product-card">
+      <!-- 9: Regton (شعر) -->
+      <div class="product-card" data-category="haircare">
         <img src="regton.jpg" alt="Regton">
         <h3 class="product-title">Regton</h3>
         <div class="product-price">135 ج.م <span>175 ج.م</span></div>
@@ -320,8 +360,8 @@
         </div>
       </div>
 
-      <!-- 10 -->
-      <div class="product-card">
+      <!-- 10: Altibro Serum (شعر) -->
+      <div class="product-card" data-category="haircare">
         <img src="altibro.jpg" alt="Altibro Hair Serum">
         <h3 class="product-title">Altibro Hair Serum</h3>
         <div class="product-price">220 ج.م <span>280 ج.م</span></div>
@@ -335,6 +375,24 @@
   </div>
 
   <script>
+    // دالة تصفية المنتجات حسب القسم
+    function filterProducts(category, element) {
+      // تغيير الزر النشط
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      element.classList.add('active');
+
+      // إظهار وإخفاء المنتجات
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
     function addToCart(title, price, image) {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       let existingIndex = cart.findIndex(item => item.title === title);
@@ -361,3 +419,4 @@
 
 </body>
 </html>
+
