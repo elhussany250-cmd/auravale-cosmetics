@@ -3,228 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Regton - Auravale Cosmetics</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* تنسيقات كارت المنتج والنموذج */
-    .product-page-container {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-    .product-header {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-    .product-title {
-      font-size: 24px;
-      color: #222;
-      margin-bottom: 8px;
-    }
-    .product-price {
-      font-size: 20px;
-      color: #b59410;
-      font-weight: bold;
-    }
-    .product-desc {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.7;
-      margin: 15px 0 25px;
-      text-align: center;
-    }
-    .order-form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 500px;
-      margin: 0 auto 20px;
-    }
-    .order-form input, .order-form select {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-      font-family: inherit;
-    }
-    .btn-submit {
-      background: #b59410;
-      color: #fff;
-      border: none;
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .btn-submit:hover {
-      background: #967a0d;
-    }
-    .btn-whatsapp {
-      display: block;
-      text-align: center;
-      background: #25d366;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: bold;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    /* قسم آراء العملاء الخاص بـ Regton */
-    .product-reviews-container {
-      max-width: 800px;
-      margin: 40px auto 20px;
-      padding: 0 15px;
-    }
-    .reviews-header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .reviews-header h3 {
-      color: #b59410;
-      font-size: 20px;
-      margin: 0 0 5px 0;
-      font-weight: bold;
-    }
-    .reviews-summary {
-      font-size: 13px;
-      color: #666;
-    }
-    .product-reviews-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .product-review-card {
-      background: #ffffff;
-      border: 1px solid #f0eada;
-      border-radius: 12px;
-      padding: 15px 18px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.04);
-    }
-    .review-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-    .reviewer-name {
-      font-size: 14px;
-      font-weight: bold;
-      color: #222;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .verified-badge {
-      background: #e6f4ea;
-      color: #137333;
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-weight: normal;
-    }
-    .review-stars {
-      color: #f39c12;
-      font-size: 14px;
-      letter-spacing: 2px;
-    }
-    .review-comment {
-      font-size: 13px;
-      color: #444;
-      line-height: 1.6;
-    }
-    .review-date {
-      font-size: 11px;
-      color: #999;
-      margin-top: 8px;
-      text-align: left;
-    }
-  </style>
+  <title>Altibro Hair Serum - Auravale Cosmetics</title>
+  <link rel="stylesheet" href="style.css?v=80">
 </head>
 <body>
 
-  <div class="product-page-container">
-    <div class="product-header">
-      <h1 class="product-title">Regton - ريجتون</h1>
-      <div class="product-price">المكمل والمقوي العام المميز</div>
-    </div>
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">Auravale Cosmetics</a>
+    <a href="index.html" class="cart-btn-nav" style="text-decoration: none;">🏠 الرئيسية</a>
+  </nav>
 
-    <p class="product-desc">
-      مكمل غذائي ومقوي عام يعمل على تعزيز النشاط والحيوية وتقليل الإرهاق اليومي، يمنح جسمك الطاقة المتوازنة والعناصر التي يحتاجها يومياً.
-    </p>
-
-    <!-- نموذج الطلب المباشر -->
-    <form class="order-form">
-      <input type="text" placeholder="الاسم بالكامل" required>
-      <input type="tel" placeholder="رقم الهاتف" required>
-      <input type="text" placeholder="العنوان بالتفصيل" required>
-      <select required>
-        <option value="">اختر المحافظة</option>
-        <option value="cairo">القاهرة</option>
-        <option value="giza">الجيزة</option>
-        <option value="alex">الإسكندرية</option>
-        <option value="other">باقي المحافظات</option>
-      </select>
-      <button type="submit" class="btn-submit">تأكيد الطلب 🚀</button>
-    </form>
-
-    <a href="https://wa.me/201106014523" class="btn-whatsapp" target="_blank">تحدث معنا عبر الواتساب 💬</a>
-  </div>
-
-  <!-- ================= قسم آراء العملاء لمنتج ريجتون ================= -->
-  <div class="product-reviews-container">
-    <div class="reviews-header">
-      <h3>آراء وتجارب العميلات ✨</h3>
-      <div class="reviews-summary">تقييم 4.9 من 5 بناءً على أحدث المراجعات</div>
-    </div>
-
-    <div class="product-reviews-list">
-      <div class="product-review-card">
-        <div class="review-card-top">
-          <div class="reviewer-name">
-            غادة إبراهيم
-            <span class="verified-badge">✓ مشتري مؤكد</span>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <div class="review-comment">مكمل ممتاز جداً، فرق معايا في النشاط والتركيز اليومي وقلل الإرهاق تماماً.</div>
-        <div class="review-date">منذ 3 أيام</div>
+  <main style="max-width: 1000px; margin: 30px auto; padding: 0 15px; box-sizing: border-box;">
+    <div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+      
+      <div style="flex: 1; min-width: 280px;">
+        <img src="altibro.jpg" alt="Altibro Hair Serum" style="width: 100%; border-radius: 10px; object-fit: cover;">
       </div>
 
-      <div class="product-review-card">
-        <div class="review-card-top">
-          <div class="reviewer-name">
-            أمنية نبيل
-            <span class="verified-badge">✓ مشتري مؤكد</span>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <div class="review-comment">فرق معايا جداً في الحيوية خلال اليوم، منتج مميز والنتيجة ظهرت معايا بسرعة.</div>
-        <div class="review-date">منذ أسبوع</div>
-      </div>
+      <div style="flex: 1; min-width: 280px;">
+        <a href="index.html" style="color: #b59410; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; margin-bottom: 10px;">← العودة للمتجر</a>
+        
+        <h2 style="margin: 0 0 10px 0; color: #333;">Altibro Hair Serum</h2>
+        <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 15px;">
+          سيروم مغذي ومصلح لتشقق وأطراف الشعر يمنح اللمعان والحماية من الحرارة والعوامل الجوية.
+        </p>
 
-      <div class="product-review-card">
-        <div class="review-card-top">
-          <div class="reviewer-name">
-            فرح طارق
-            <span class="verified-badge">✓ مشتري مؤكد</span>
-          </div>
-          <div class="review-stars">★★★★★</div>
+        <div style="margin-bottom: 20px;">
+          <span style="font-size: 22px; font-weight: bold; color: #b59410;">220 ج.م</span>
+          <span style="text-decoration: line-through; color: #aaa; margin-right: 10px; font-size: 16px;">280 ج.م</span>
         </div>
-        <div class="review-comment">تركيبة ممتازة ومفيدة جداً، والتوصيل كان سريع والمنتج أصلـي.</div>
-        <div class="review-date">منذ أسبوعين</div>
+
+        <div style="background: #fdfbf7; border: 1px solid #f0e6d2; padding: 20px; border-radius: 10px;">
+          <h4 style="margin-top: 0; color: #b59410; margin-bottom: 15px; text-align: center;">أدخل بياناتك لإتمام الطلب:</h4>
+          
+          <form onsubmit="sendProductOrder(event, 'Altibro Hair Serum', 220)">
+            <div style="margin-bottom: 10px;">
+              <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">الاسم بالكامل:</label>
+              <input type="text" id="p-name" required placeholder="أدخل اسمك الكريم" style="width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+            </div>
+
+            <div style="margin-bottom: 10px;">
+              <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">رقم الهاتف:</label>
+              <input type="tel" id="p-phone" required placeholder="رقم الموبايل للتواصل" style="width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+              <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">العنوان بالتفصيل:</label>
+              <textarea id="p-address" required rows="2" placeholder="المحافظة - المدينة - الشارع" style="width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; resize: none;"></textarea>
+            </div>
+
+            <button type="submit" style="width: 100%; padding: 12px; background: #b59410; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; margin-bottom: 8px; transition: 0.3s;" onmouseover="this.style.background='#967a0d'" onmouseout="this.style.background='#b59410'">
+              تأكيد الطلب 🚀
+            </button>
+
+            <button type="button" onclick="chatWhatsApp('Altibro Hair Serum')" style="width: 100%; padding: 10px; background: #25d366; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">
+              تحدث معنا عبر الواتساب 💬
+            </button>
+          </form>
+        </div>
+
       </div>
     </div>
-  </div>
-  <!-- ================= نهاية قسم الآراء ================= -->
+  </main>
+
+  <script>
+    const PHONE_NUMBER = "201000000000";
+
+    function sendProductOrder(event, productName, price) {
+      event.preventDefault();
+      const name = document.getElementById('p-name').value;
+      const phone = document.getElementById('p-phone').value;
+      const address = document.getElementById('p-address').value;
+
+      let msg = `🛒 *طلب جديد عبر الموقع*\n`;
+      msg += `-------------------------\n`;
+      msg += `📦 *المنتج:* ${productName}\n`;
+      msg += `💰 *السعر:* ${price} ج.م\n`;
+      msg += `-------------------------\n`;
+      msg += `👤 *الاسم:* ${name}\n`;
+      msg += `📞 *الهاتف:* ${phone}\n`;
+      msg += `🏠 *العنوان:* ${address}`;
+
+      window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function chatWhatsApp(productName) {
+      const msg = `مرحباً Auravale Cosmetics، أريد الاستفسار عن منتج: ${productName}`;
+      window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
 
 </body>
 </html>
