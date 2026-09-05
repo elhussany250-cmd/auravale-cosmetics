@@ -1,87 +1,124 @@
+/* --- Auravale Cosmetics Premium Styling --- */
+
+/* تصفير الهوامش القياسية */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* إعدادات الجسد العام - استخدم خلفية رخامية فاتحة */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f5ef;
-  color: #3b2b22;
+  font-family: 'Times New Roman', Times, serif; /* خط كلاسيكي فخم */
+  background-color: #fcfbf8; /* لون أوف وايت رخامي فاتح جداً */
+  /* لإضافة تأثير رخامي خفيف، يمكن فك تعليق السطر التالي واستخدام صورة خلفية رخامية بيضاء */
+  /* background-image: url('images/marble-bg.jpg'); background-size: cover; */
+  color: #4a3c31; /* بني داكن مصقول للكتابة العامة */
   direction: rtl;
-  padding: 20px;
+  padding: 40px 20px;
+}
+
+/* رأس المتجر - مستوحى من اللوحة الرخامية في الصورة */
+.main-header {
+  text-align: center;
+  margin-bottom: 50px;
+  background-color: #ffffff; /* خلفية بيضاء نقية */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 3px solid #d4af37; /* إطار ذهبي رفيع */
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  color: #b59410; /* ذهبي أغمق قليلاً للعناوين */
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.main-header p {
+  font-size: 1.1rem;
+  color: #7d6e5c; /* بني فاتح للنص الفرعي */
+  font-style: italic;
 }
 
 /* شبكة عرض المنتجات */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
-/* كارت المنتج */
+/* كارت المنتج - نظيف وفاخر */
 .product-card {
   background: #ffffff;
   border-radius: 12px;
-  padding: 15px;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #eae1d1; /* حدود خفيفة جداً */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(181, 148, 16, 0.1); /* ظل ذهبي خفيف عند الهوفر */
+  border-color: #d4af37; /* تحويل الحدود للذهبي عند الهوفر */
 }
 
 /* صور المنتجات */
 .product-card img {
   max-width: 100%;
-  height: 200px;
+  height: 230px;
   object-fit: contain;
   border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 /* عنوان المنتج */
 .product-title {
-  font-size: 1.1rem;
-  margin: 12px 0 8px;
-  color: #333333;
+  font-size: 1.2rem;
+  font-weight: normal; /* ليس عريضاً جداً للحفاظ على الفخامة */
+  margin: 15px 0 10px;
+  color: #4a3c31; /* بني داكن */
 }
 
 /* أسعار المنتجات */
 .price-container {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .old-price {
   text-decoration: line-through;
-  color: #888888;
-  font-size: 0.9rem;
-  margin-left: 8px;
+  color: #a89a8a; /* بني فاتح باهت */
+  font-size: 1rem;
+  margin-left: 10px;
 }
 
 .current-price {
-  color: #e63946;
+  color: #b59410; /* ذهبي للسعر الحالي */
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
-/* زر الشراء */
+/* زر الشراء - بنفسجي لافندر هادئ مستوحى من أغصان اللافندر */
 .buy-btn {
-  background-color: #25d366;
+  display: block;
+  background-color: #8a7b9c; /* بنفسجي لافندر مطفي */
   color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 1rem;
   width: 100%;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease;
+  border: none;
 }
 
 .buy-btn:hover {
-  background-color: #1eb857;
+  background-color: #726284; /* لافندر أغمق عند الهوفر */
 }
