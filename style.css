@@ -230,3 +230,18 @@ body {
   border-radius: 8px;
   cursor: pointer;
 }
+/* تنسيق الصورة الرئيسية (Banner) */
+.banner-section {
+  max-width: 1200px;
+  margin: 25px auto 10px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-banner-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
