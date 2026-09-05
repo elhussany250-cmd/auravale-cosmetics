@@ -91,7 +91,91 @@
       const msg = `مرحباً Auravale Cosmetics، أريد الاستفسار عن منتج: ${productName}`;
       window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }
-<!-- قسم آراء العملاء لمنتج ريجتون -->
+<!-- قسم آراء العملاء لمنتج ريجتون (كامل مع التنسيقات) -->
+<style>
+  .product-reviews-container {
+    max-width: 800px;
+    margin: 40px auto 20px;
+    padding: 0 15px;
+    font-family: inherit;
+  }
+
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .reviews-header h3 {
+    color: #b59410;
+    font-size: 20px;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+  }
+
+  .reviews-summary {
+    font-size: 13px;
+    color: #666;
+  }
+
+  .product-reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .product-review-card {
+    background: #ffffff;
+    border: 1px solid #f0eada;
+    border-radius: 12px;
+    padding: 15px 18px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+  }
+
+  .review-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .reviewer-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .verified-badge {
+    background: #e6f4ea;
+    color: #137333;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: normal;
+  }
+
+  .review-stars {
+    color: #f39c12;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .review-comment {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .review-date {
+    font-size: 11px;
+    color: #999;
+    margin-top: 8px;
+    text-align: left;
+  }
+</style>
+
 <div class="product-reviews-container">
   <div class="reviews-header">
     <h3>آراء وتجارب العميلات ✨</h3>
@@ -99,6 +183,7 @@
   </div>
 
   <div class="product-reviews-list">
+    <!-- تقييم 1 -->
     <div class="product-review-card">
       <div class="review-card-top">
         <div class="reviewer-name">
@@ -111,6 +196,7 @@
       <div class="review-date">منذ 3 أيام</div>
     </div>
 
+    <!-- تقييم 2 -->
     <div class="product-review-card">
       <div class="review-card-top">
         <div class="reviewer-name">
@@ -123,6 +209,7 @@
       <div class="review-date">منذ أسبوع</div>
     </div>
 
+    <!-- تقييم 3 -->
     <div class="product-review-card">
       <div class="review-card-top">
         <div class="reviewer-name">
@@ -136,6 +223,5 @@
     </div>
   </div>
 </div>
-
 </body>
 </html>
