@@ -8,10 +8,23 @@
 </head>
 <body>
 
-  <!-- رأس المتجر -->
+  <!-- شريط التنقل العلوي والسلة -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Auravale Cosmetics</a>
+      <div class="cart-icon" onclick="toggleCart()">
+        🛒 السلة (<span id="cart-count">0</span>)
+      </div>
+    </div>
+  </nav>
+
+  <!-- رأس المتجر وصورة البانر -->
   <header class="main-header">
     <h1>Auravale Cosmetics</h1>
     <p>أفضل منتجات العناية بالبشرة والشعر</p>
+    <div class="banner-container">
+      <img src="banner.jpg" alt="Auravale Banner" class="header-banner">
+    </div>
   </header>
 
   <!-- شبكة المنتجات -->
@@ -25,7 +38,10 @@
         <span class="old-price">115 ج.م</span>
         <span class="current-price">88 ج.م</span>
       </div>
-      <a href="https://wa.me/201000000000?text=أريد%20طلب%20منتج:%20Evatar%20Cream" target="_blank" class="buy-btn">طلب عبر واتساب</a>
+      <div class="card-buttons">
+        <a href="evatar.html" class="details-btn">تفاصيل المنتج</a>
+        <button onclick="addToCart('Evatar Cream', 88)" class="buy-btn">إضافة للسلة 🛒</button>
+      </div>
     </div>
 
     <!-- 2. Revasure Cleanser -->
@@ -36,7 +52,10 @@
         <span class="old-price">250 ج.م</span>
         <span class="current-price">195 ج.م</span>
       </div>
-      <a href="https://wa.me/201000000000?text=أريد%20طلب%20منتج:%20Revasure%20Cleanser" target="_blank" class="buy-btn">طلب عبر واتساب</a>
+      <div class="card-buttons">
+        <a href="revasure.html" class="details-btn">تفاصيل المنتج</a>
+        <button onclick="addToCart('Revasure Skin Cleanser', 195)" class="buy-btn">إضافة للسلة 🛒</button>
+      </div>
     </div>
 
     <!-- 3. Jonacare Cream -->
@@ -47,7 +66,10 @@
         <span class="old-price">240 ج.م</span>
         <span class="current-price">185 ج.م</span>
       </div>
-      <a href="https://wa.me/201000000000?text=أريد%20طلب%20منتج:%20Jonacare%20Cream" target="_blank" class="buy-btn">طلب عبر واتساب</a>
+      <div class="card-buttons">
+        <a href="jonacare.html" class="details-btn">تفاصيل المنتج</a>
+        <button onclick="addToCart('Jonacare Cream SPF30', 185)" class="buy-btn">إضافة للسلة 🛒</button>
+      </div>
     </div>
 
     <!-- 4. Hairytec Hair Tonic -->
@@ -58,77 +80,67 @@
         <span class="old-price">290 ج.م</span>
         <span class="current-price">225 ج.م</span>
       </div>
-      <a href="https://wa.me/201000000000?text=أريد%20طلب%20منتج:%20Hairytec%20Hair%20Tonic" target="_blank" class="buy-btn">طلب عبر واتساب</a>
-    </div>
-
-    <!-- 5. Hairytec Anti-Dandruff -->
-    <div class="product-card">
-      <img src="hairytec-dandruff.jpg" alt="Hairytec Anti-Dandruff">
-      <h3 class="product-title">Hairytec Anti-Dandruff Shampoo</h3>
-      <div class="price-container">
-        <span class="old-price">230 ج.م</span>
-        <span class="current-price">180 ج.م</span>
+      <div class="card-buttons">
+        <a href="hairytec-tonic.html" class="details-btn">تفاصيل المنتج</a>
+        <button onclick="addToCart('Hairytec Hair Tonic Lotion', 225)" class="buy-btn">إضافة للسلة 🛒</button>
       </div>
-      <a href="https://wa.me/201000000000?text=أريد%20طلب%20منتج:%20Hairytec%20Anti-Dandruff" target="_blank" class="buy-btn">طلب عبر واتساب</a>
-    </div>
-
-    <!-- 6. Hairytec Anti-Hairloss -->
-    <div class="product-card">
-      <img src="hairytec-hairloss.jpg" alt="Hairytec Anti-Hairloss">
-      <h3 class="product-title">Hairytec Anti-Hairloss Shampoo</h3>
-      <div class="price-container">
-        <span class="old-price">240 ج.م</span>
-        <span class="current-price">185 ج.م</span>
-      </div>
-      <a href="https://wa.me/201000000000?text=أريد%20طلب%20منتج:%20Hairytec%20Anti-Hairloss" target="_blank" class="buy-btn">طلب عبر واتساب</a>
-    </div>
-
-    <!-- 7. Vetasure -->
-    <div class="product-card">
-      <img src="vetasure.jpg" alt="Vetasure">
-      <h3 class="product-title">Vetasure</h3>
-      <div class="price-container">
-        <span class="old-price">160 ج.م</span>
-        <span class="current-price">125 ج.م</span>
-      </div>
-      <a href="https://wa.me/201000000000?text=أريد%20طلب%20منتج:%20Vetasure" target="_blank" class="buy-btn">طلب عبر واتساب</a>
-    </div>
-
-    <!-- 8. Evatae Feminine Wash -->
-    <div class="product-card">
-      <img src="evatae.jpg" alt="Evatae Feminine Wash">
-      <h3 class="product-title">Evatae Intimate Feminine Wash</h3>
-      <div class="price-container">
-        <span class="old-price">100 ج.م</span>
-        <span class="current-price">75 ج.م</span>
-      </div>
-      <a href="https://wa.me/201000000000?text=أريد%20طلب%20منتج:%20Evatae%20Feminine%20Wash" target="_blank" class="buy-btn">طلب عبر واتساب</a>
-    </div>
-
-    <!-- 9. Regton -->
-    <div class="product-card">
-      <img src="regton.jpg" alt="Regton">
-      <h3 class="product-title">Regton</h3>
-      <div class="price-container">
-        <span class="old-price">175 ج.م</span>
-        <span class="current-price">135 ج.م</span>
-      </div>
-      <a href="https://wa.me/201000000000?text=أريد%20طلب%20منتج:%20Regton" target="_blank" class="buy-btn">طلب عبر واتساب</a>
-    </div>
-
-    <!-- 10. Altibro Hair Serum -->
-    <div class="product-card">
-      <img src="altibro.jpg" alt="Altibro Hair Serum">
-      <h3 class="product-title">Altibro Hair Serum</h3>
-      <div class="price-container">
-        <span class="old-price">280 ج.م</span>
-        <span class="current-price">220 ج.م</span>
-      </div>
-      <a href="https://wa.me/201000000000?text=أريد%20طلب%20منتج:%20Altibro%20Hair%20Serum" target="_blank" class="buy-btn">طلب عبر واتساب</a>
     </div>
 
   </main>
 
+  <!-- نافذة سلة المشتريات الجانبية -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <h3>سلة المشتريات</h3>
+    <ul id="cart-items"></ul>
+    <div class="cart-total">إجمالي الحساب: <span id="cart-total-price">0</span> ج.م</div>
+    <button onclick="checkoutWhatsApp()" class="checkout-btn">إتمام الطلب عبر واتساب</button>
+    <button onclick="toggleCart()" class="close-cart-btn">إغلاق</button>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function addToCart(title, price) {
+      cart.push({ title, price });
+      updateCartUI();
+      alert('تمت إضافة ' + title + ' إلى السلة!');
+    }
+
+    function updateCartUI() {
+      document.getElementById('cart-count').innerText = cart.length;
+      const cartList = document.getElementById('cart-items');
+      cartList.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price;
+        const li = document.createElement('li');
+        li.innerText = item.title + ' - ' + item.price + ' ج.م';
+        cartList.appendChild(li);
+      });
+      document.getElementById('cart-total-price').innerText = total;
+    }
+
+    function toggleCart() {
+      document.getElementById('cart-sidebar').classList.toggle('active');
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('السلة فارغة!');
+        return;
+      }
+      let message = 'مرحباً، أريد طلب المنتجات التالية:\n';
+      let total = 0;
+      cart.forEach((item, index) => {
+        message += `${index + 1}. ${item.title} - ${item.price} ج.م\n`;
+        total += item.price;
+      });
+      message += `\nإجمالي الحساب: ${total} ج.م`;
+      
+      const phone = "201000000000"; // استبدل برقمك
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+  </script>
+
 </body>
 </html>
-
