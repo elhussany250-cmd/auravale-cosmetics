@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hairytec Hair Tonic Lotion - Auravale Cosmetics</title>
+  <link rel="stylesheet" href="style.css?v=20">
+  <style>
+    .product-detail-container { max-width: 900px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 30px; }
+    .product-detail-img { flex: 1 1 350px; max-width: 400px; border-radius: 10px; object-fit: cover; width: 100%; }
+    .product-detail-info { flex: 1 1 350px; display: flex; flex-direction: column; justify-content: center; }
+    .back-btn { display: inline-block; margin-bottom: 20px; color: #b59410; text-decoration: none; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">Auravale Cosmetics</a>
+    <button class="cart-btn-nav" onclick="location.href='index.html'">🏠 الرئيسية</button>
+  </nav>
+
+  <div class="product-detail-container">
+    <img src="hairytec-tonic.jpg" alt="Hairytec Hair Tonic Lotion" class="product-detail-img">
+    <div class="product-detail-info">
+      <a href="index.html" class="back-btn">← العودة للمتجر</a>
+      <h2>Hairytec Hair Tonic Lotion</h2>
+      <p style="color: #7d6e5c; margin: 10px 0;">لوشن مقوي ومغذي لبصيلات الشعر يمنح الشعر كثافة أعلى وقوة تستمر مع الاستخدام المنتظم.</p>
+      <div class="price-container" style="margin: 15px 0;">
+        <span class="old-price">290 ج.م</span>
+        <span class="current-price">225 ج.م</span>
+      </div>
+      <button class="add-cart-btn" style="padding: 12px;" onclick="orderWhatsApp('Hairytec Hair Tonic Lotion', 225)">طلب مباشر عبر واتساب 💬</button>
+    </div>
+  </div>
+
+  <script>
+    function orderWhatsApp(name, price) {
+      const phone = "201000000000";
+      const msg = `مرحباً، أريد طلب منتج: ${name} بسعر ${price} ج.م`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
