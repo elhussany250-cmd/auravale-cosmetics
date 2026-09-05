@@ -4,40 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hairytec Anti-Hairloss Shampoo - Auravale Cosmetics</title>
-  <link rel="stylesheet" href="style.css?v=20">
-  <style>
-    .product-detail-container { max-width: 900px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 30px; }
-    .product-detail-img { flex: 1 1 350px; max-width: 400px; border-radius: 10px; object-fit: cover; width: 100%; }
-    .product-detail-info { flex: 1 1 350px; display: flex; flex-direction: column; justify-content: center; }
-    .back-btn { display: inline-block; margin-bottom: 20px; color: #b59410; text-decoration: none; font-weight: bold; }
-  </style>
+  <link rel="stylesheet" href="style.css?v=80">
 </head>
 <body>
+
   <nav class="navbar">
     <a href="index.html" class="nav-brand">Auravale Cosmetics</a>
-    <button class="cart-btn-nav" onclick="location.href='index.html'">🏠 الرئيسية</button>
+    <a href="index.html" class="cart-btn-nav" style="text-decoration: none;">🏠 الرئيسية</a>
   </nav>
 
-  <div class="product-detail-container">
-    <img src="hairytec-hairloss.jpg" alt="Hairytec Anti-Hairloss Shampoo" class="product-detail-img">
-    <div class="product-detail-info">
-      <a href="index.html" class="back-btn">← العودة للمتجر</a>
-      <h2>Hairytec Anti-Hairloss Shampoo</h2>
-      <p style="color: #7d6e5c; margin: 10px 0;">شامبو مخصص للحماية من تساقط الشعر وتقوية الجذور وتنشيط الدورة الدموية بفروة الرأس.</p>
-      <div class="price-container" style="margin: 15px 0;">
-        <span class="old-price">240 ج.م</span>
-        <span class="current-price">185 ج.م</span>
+  <main style="max-width: 1000px; margin: 30px auto; padding: 0 15px; box-sizing: border-box;">
+    <div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+      
+      <div style="flex: 1; min-width: 280px;">
+        <img src="hairytec-hairloss.jpg" alt="Hairytec Anti-Hairloss Shampoo" style="width: 100%; border-radius: 10px; object-fit: cover;">
       </div>
-      <button class="add-cart-btn" style="padding: 12px;" onclick="orderWhatsApp('Hairytec Anti-Hairloss Shampoo', 185)">طلب مباشر عبر واتساب 💬</button>
+
+      <div style="flex: 1; min-width: 280px;">
+        <a href="index.html" style="color: #b59410; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; margin-bottom: 10px;">← العودة للمتجر</a>
+        
+        <h2 style="margin: 0 0 10px 0; color: #333;">Hairytec Anti-Hairloss Shampoo</h2>
+        <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 15px;">
+          شامبو مخصص للحد من تساقط الشعر وتحفيز نموه وتقوية الشعر الضعيف.
+        </p>
+
+        <div style="margin-bottom: 20px;">
+          <span style="font-size: 22px; font-weight: bold; color: #b59410;">185 ج.م</span>
+          <span style="text-decoration: line-through; color: #aaa; margin-right: 10px; font-size: 16px;">240 ج.م</span>
+        </div>
+
+        <div style="background: #fdfbf7; border: 1px solid #f0e6d2; padding: 20px; border-radius: 10px;">
+          <h4 style="margin-top: 0; color: #b59410; margin-bottom: 15px; text-align: center;">أدخل بياناتك لإتمام الطلب:</h4>
+          
+          <form onsubmit="sendProductOrder(event, 'Hairytec Anti-Hairloss Shampoo', 185)">
+            <div style="margin-bottom: 10px;">
+              <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">الاسم بالكامل:</label>
+              <input type="text" id="p-name" required placeholder="أدخل اسمك الكريم" style="width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+            </div>
+
+            <div style="margin-bottom: 10px;">
+              <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">رقم الهاتف:</label>
+              <input type="tel" id="p-phone" required placeholder="رقم الموبايل للتواصل" style="width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+              <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">العنوان بالتفصيل:</label>
+              <textarea id="p-address" required rows="2" placeholder="المحافظة - المدينة - الشارع" style="width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; resize: none;"></textarea>
+            </div>
+
+            <button type="submit" style="width: 100%; padding: 12px; background: #b59410; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; margin-bottom: 8px; transition: 0.3s;" onmouseover="this.style.background='#967a0d'" onmouseout="this.style.background='#b59410'">
+              تأكيد الطلب 🚀
+            </button>
+
+            <button type="button" onclick="chatWhatsApp('Hairytec Anti-Hairloss Shampoo')" style="width: 100%; padding: 10px; background: #25d366; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">
+              تحدث معنا عبر الواتساب 💬
+            </button>
+          </form>
+        </div>
+
+      </div>
     </div>
-  </div>
+  </main>
 
   <script>
-    function orderWhatsApp(name, price) {
-      const phone = "201106014523";
-      const msg = `مرحباً، أريد طلب منتج: ${name} بسعر ${price} ج.م`;
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    const PHONE_NUMBER = "201106014523";
+
+    function sendProductOrder(event, productName, price) {
+      event.preventDefault();
+      const name = document.getElementById('p-name').value;
+      const phone = document.getElementById('p-phone').value;
+      const address = document.getElementById('p-address').value;
+
+      let msg = `🛒 *طلب جديد عبر الموقع*\n`;
+      msg += `-------------------------\n`;
+      msg += `📦 *المنتج:* ${productName}\n`;
+      msg += `💰 *السعر:* ${price} ج.م\n`;
+      msg += `-------------------------\n`;
+      msg += `👤 *الاسم:* ${name}\n`;
+      msg += `📞 *الهاتف:* ${phone}\n`;
+      msg += `🏠 *العنوان:* ${address}`;
+
+      window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function chatWhatsApp(productName) {
+      const msg = `مرحباً Auravale Cosmetics، أريد الاستفسار عن منتج: ${productName}`;
+      window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }
   </script>
+
 </body>
 </html>
