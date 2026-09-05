@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auravale Cosmetics - المتجر الرئيسي</title>
-  <link rel="stylesheet" href="style.css?v=300">
+  <link rel="stylesheet" href="style.css?v=400">
   <style>
     :root {
       --primary-gold: #b59410;
@@ -25,6 +25,17 @@
       background-color: var(--bg-light);
       color: #333;
       padding-bottom: 40px;
+    }
+
+    /* Top Announcement Bar */
+    .announcement-bar {
+      background: var(--primary-gold);
+      color: #ffffff;
+      text-align: center;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.3px;
     }
 
     /* Header */
@@ -161,10 +172,25 @@
       flex-direction: column;
       justify-content: space-between;
       border: 1px solid #f0eada;
+      position: relative;
     }
 
     .product-card.hidden {
       display: none !important;
+    }
+
+    /* Discount Badge */
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #d9534f;
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 3px 7px;
+      border-radius: 12px;
+      z-index: 10;
     }
 
     .product-card img {
@@ -175,12 +201,11 @@
       margin-bottom: 8px;
     }
 
-    /* توحيد ارتفاع عنوان المنتج */
     .product-title {
       font-size: 13px;
       font-weight: 700;
       color: #222;
-      margin-bottom: 6px;
+      margin-bottom: 3px;
       line-height: 1.3;
       height: 34px;
       display: -webkit-box;
@@ -189,11 +214,24 @@
       overflow: hidden;
     }
 
+    /* Stars */
+    .rating-stars {
+      color: #f39c12;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .rating-stars span {
+      color: #777;
+      font-size: 10px;
+      margin-right: 2px;
+    }
+
     .product-price {
       font-size: 14px;
       font-weight: bold;
       color: var(--primary-gold);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .product-price span {
@@ -243,11 +281,55 @@
     .btn-add-cart:hover {
       background: var(--dark-hover);
     }
+
+    /* Reviews Section */
+    .reviews-section {
+      margin-top: 35px;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 15px 12px;
+      border: 1px solid #f0eada;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .review-card {
+      background: #faf8f5;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+
+    .review-author {
+      font-size: 12px;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 2px;
+    }
+
+    .review-text {
+      font-size: 11px;
+      color: #555;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <div class="announcement-bar">
+    🚚 شحن مجاني للطلبات المميزة | خصومات حصريّة لفترة محدودة!
+  </div>
+
   <header class="header">
     <div class="header-container">
       <a href="index.html" class="brand-logo">Auravale Cosmetics</a>
@@ -258,16 +340,13 @@
     </div>
   </header>
 
-  <!-- Hero Banner -->
   <div class="hero-banner">
     <img src="banner.jpg" alt="Auravale Cosmetics" onerror="this.src='evatar.jpg';">
   </div>
 
-  <!-- Main Section -->
   <div class="container">
     <h1 class="section-title">منتجاتنا المميزة للعناية والجمال</h1>
     
-    <!-- الأقسام والتصفية -->
     <div class="category-tabs">
       <button class="tab-btn active" onclick="filterProducts('all', this)">الكل</button>
       <button class="tab-btn" onclick="filterProducts('skincare', this)">العناية بالبشرة</button>
@@ -276,10 +355,11 @@
 
     <div class="products-grid">
 
-      <!-- 1 -->
       <div class="product-card" data-category="skincare">
+        <span class="badge">خصم 23%</span>
         <img src="evatar.jpg" alt="Evatar Cream">
         <h3 class="product-title">Evatar Cream</h3>
+        <div class="rating-stars">★★★★★ <span>(4.9)</span></div>
         <div class="product-price">88 ج.م <span>115 ج.م</span></div>
         <div class="card-buttons">
           <a href="evatar.html" class="btn-details">اطلب الآن / التفاصيل</a>
@@ -287,10 +367,11 @@
         </div>
       </div>
 
-      <!-- 2 -->
       <div class="product-card" data-category="skincare">
+        <span class="badge">خصم 22%</span>
         <img src="revasure.jpg" alt="Revasure Skin Cleanser">
         <h3 class="product-title">Revasure Skin Cleanser</h3>
+        <div class="rating-stars">★★★★★ <span>(4.8)</span></div>
         <div class="product-price">195 ج.م <span>250 ج.م</span></div>
         <div class="card-buttons">
           <a href="revasure.html" class="btn-details">اطلب الآن / التفاصيل</a>
@@ -298,10 +379,11 @@
         </div>
       </div>
 
-      <!-- 3 -->
       <div class="product-card" data-category="skincare">
+        <span class="badge">خصم 23%</span>
         <img src="jonacare.jpg" alt="Jonacare Cream SPF30">
         <h3 class="product-title">Jonacare Cream SPF30</h3>
+        <div class="rating-stars">★★★★★ <span>(5.0)</span></div>
         <div class="product-price">185 ج.م <span>240 ج.م</span></div>
         <div class="card-buttons">
           <a href="jonacare.html" class="btn-details">اطلب الآن / التفاصيل</a>
@@ -309,10 +391,11 @@
         </div>
       </div>
 
-      <!-- 4 -->
       <div class="product-card" data-category="haircare">
+        <span class="badge">خصم 22%</span>
         <img src="hairytec-tonic.jpg" alt="Hairytec Hair Tonic Lotion">
         <h3 class="product-title">Hairytec Hair Tonic Lotion</h3>
+        <div class="rating-stars">★★★★★ <span>(4.9)</span></div>
         <div class="product-price">225 ج.م <span>290 ج.م</span></div>
         <div class="card-buttons">
           <a href="hairytec-tonic.html" class="btn-details">اطلب الآن / التفاصيل</a>
@@ -320,10 +403,11 @@
         </div>
       </div>
 
-      <!-- 5 -->
       <div class="product-card" data-category="haircare">
+        <span class="badge">خصم 21%</span>
         <img src="hairytec-dandruff.jpg" alt="Hairytec Anti-Dandruff Shampoo">
         <h3 class="product-title">Hairytec Anti-Dandruff Shampoo</h3>
+        <div class="rating-stars">★★★★★ <span>(4.7)</span></div>
         <div class="product-price">180 ج.م <span>230 ج.م</span></div>
         <div class="card-buttons">
           <a href="hairytec-dandruff.html" class="btn-details">اطلب الآن / التفاصيل</a>
@@ -331,10 +415,11 @@
         </div>
       </div>
 
-      <!-- 6 -->
       <div class="product-card" data-category="haircare">
+        <span class="badge">خصم 23%</span>
         <img src="hairytec-hairloss.jpg" alt="Hairytec Anti-Hairloss Shampoo">
         <h3 class="product-title">Hairytec Anti-Hairloss Shampoo</h3>
+        <div class="rating-stars">★★★★★ <span>(4.8)</span></div>
         <div class="product-price">185 ج.م <span>240 ج.م</span></div>
         <div class="card-buttons">
           <a href="hairytec-hairloss.html" class="btn-details">اطلب الآن / التفاصيل</a>
@@ -342,10 +427,11 @@
         </div>
       </div>
 
-      <!-- 7 -->
       <div class="product-card" data-category="skincare">
+        <span class="badge">خصم 22%</span>
         <img src="vetasure.jpg" alt="Vetasure">
         <h3 class="product-title">Vetasure</h3>
+        <div class="rating-stars">★★★★★ <span>(4.9)</span></div>
         <div class="product-price">125 ج.م <span>160 ج.م</span></div>
         <div class="card-buttons">
           <a href="vetasure.html" class="btn-details">اطلب الآن / التفاصيل</a>
@@ -353,10 +439,11 @@
         </div>
       </div>
 
-      <!-- 8 -->
       <div class="product-card" data-category="skincare">
+        <span class="badge">خصم 25%</span>
         <img src="evatae.jpg" alt="Evatae Intimate Feminine Wash">
         <h3 class="product-title">Evatae Intimate Feminine Wash</h3>
+        <div class="rating-stars">★★★★★ <span>(5.0)</span></div>
         <div class="product-price">75 ج.م <span>100 ج.م</span></div>
         <div class="card-buttons">
           <a href="evatae.html" class="btn-details">اطلب الآن / التفاصيل</a>
@@ -364,10 +451,11 @@
         </div>
       </div>
 
-      <!-- 9 -->
       <div class="product-card" data-category="haircare">
+        <span class="badge">خصم 23%</span>
         <img src="regton.jpg" alt="Regton">
         <h3 class="product-title">Regton</h3>
+        <div class="rating-stars">★★★★★ <span>(4.8)</span></div>
         <div class="product-price">135 ج.م <span>175 ج.م</span></div>
         <div class="card-buttons">
           <a href="regton.html" class="btn-details">اطلب الآن / التفاصيل</a>
@@ -375,10 +463,11 @@
         </div>
       </div>
 
-      <!-- 10 -->
       <div class="product-card" data-category="haircare">
+        <span class="badge">خصم 21%</span>
         <img src="altibro.jpg" alt="Altibro Hair Serum">
         <h3 class="product-title">Altibro Hair Serum</h3>
+        <div class="rating-stars">★★★★★ <span>(4.9)</span></div>
         <div class="product-price">220 ج.م <span>280 ج.م</span></div>
         <div class="card-buttons">
           <a href="altibro.html" class="btn-details">اطلب الآن / التفاصيل</a>
@@ -387,6 +476,28 @@
       </div>
 
     </div>
+
+    <div class="reviews-section">
+      <h2 class="section-title">آراء عميلاتنا ✨</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="rating-stars">★★★★★</div>
+          <div class="review-author">سارة م.</div>
+          <p class="review-text">منتجات ممتازة جداً والتوصيل كان سريع، كريم Evatar فرق معايا جداً من أول أسبوع.</p>
+        </div>
+        <div class="review-card">
+          <div class="rating-stars">★★★★★</div>
+          <div class="review-author">مريم A.</div>
+          <p class="review-text">غسول Revasure ممتاز للبشرة الدهنية، بنظف عميق من غير ما ينشف البشرة.</p>
+        </div>
+        <div class="review-card">
+          <div class="rating-stars">★★★★★</div>
+          <div class="review-author">نوران ح.</div>
+          <p class="review-text">تجربة شراء سهلة جداً والمنتجات أصلية والتغليف راقي للغاية.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script>
