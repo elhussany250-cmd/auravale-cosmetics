@@ -8,23 +8,23 @@
 
 body {
   font-family: 'Tajawal', sans-serif;
-  background-color: #faf8f5;
-  color: #2c2623;
+  background-color: #faf7f2;
+  color: #333;
   direction: rtl;
 }
 
-/* شريط علوي أنيق بدلاً من الإطار المربع الكبير */
+/* الشريط العلوي الثابت */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff;
-  padding: 15px 5%;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+  background-color: #ffffff;
+  padding: 15px 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid #eee2d0;
+  border-bottom: 2px solid #d4af37;
 }
 
 .nav-brand {
@@ -32,88 +32,78 @@ body {
   font-weight: 700;
   color: #b59410;
   text-decoration: none;
-  letter-spacing: 0.5px;
 }
 
 .cart-btn-nav {
-  background: #8a7b9c;
-  color: #fff;
+  background-color: #8a7b9c;
+  color: #ffffff;
   border: none;
-  padding: 8px 18px;
-  border-radius: 25px;
+  padding: 8px 20px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 0.95rem;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: bold;
   transition: 0.3s;
 }
 
 .cart-btn-nav:hover {
-  background: #726284;
+  background-color: #736385;
 }
 
-/* هيدر ترحيبي عالي الفخامة */
+/* عنوان فرعي تحت الشريط العلوي */
 .main-header {
   text-align: center;
-  padding: 40px 20px 20px;
-  max-width: 800px;
-  margin: 0 auto;
+  margin: 20px 0 10px;
 }
 
-.main-header h1 {
-  font-size: 2.2rem;
-  color: #b59410;
-  margin-bottom: 8px;
-}
-
-.main-header p {
-  font-size: 1.05rem;
+.main-header .subtitle {
+  font-size: 1.2rem;
   color: #7d6e5c;
+  font-weight: 500;
 }
 
-/* شبكة المنتجات متناسقة المسافات */
+/* شبكة المنتجات */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;
   max-width: 1200px;
-  margin: 30px auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* كارت المنتج بشبكة ظلال فاخرة */
 .product-card {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 18px;
+  border-radius: 12px;
+  padding: 20px;
   text-align: center;
-  border: 1px solid #f0e6d8;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
+  border: 1px solid #eae1d1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(181, 148, 16, 0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(181, 148, 16, 0.15);
   border-color: #d4af37;
 }
 
 .product-card img {
   width: 100%;
   height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .product-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 8px 0;
-  color: #3a312a;
+  font-size: 1.15rem;
+  color: #4a3c31;
+  margin-bottom: 10px;
 }
 
 .price-container {
@@ -123,17 +113,16 @@ body {
 .old-price {
   text-decoration: line-through;
   color: #a89a8a;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-left: 8px;
 }
 
 .current-price {
   color: #b59410;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 1.25rem;
 }
 
-/* أزرار الكارت */
 .card-actions {
   display: flex;
   flex-direction: column;
@@ -142,36 +131,37 @@ body {
 
 .details-link {
   display: block;
-  background: #fcfaf7;
-  color: #3a312a;
+  background-color: #f8f5ef;
+  color: #4a3c31;
   text-decoration: none;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #d4af37;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 0.9rem;
   transition: 0.3s;
 }
 
 .details-link:hover {
-  background: #f3ece0;
+  background-color: #d4af37;
+  color: #ffffff;
 }
 
 .add-cart-btn {
-  background: #8a7b9c;
+  background-color: #8a7b9c;
   color: #ffffff;
   border: none;
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 0.9rem;
   font-family: inherit;
   transition: 0.3s;
 }
 
 .add-cart-btn:hover {
-  background: #726284;
+  background-color: #736385;
 }
 
 /* السلة الجانبية */
@@ -179,12 +169,12 @@ body {
   position: fixed;
   top: 0;
   left: -350px;
-  width: 320px;
+  width: 300px;
   height: 100%;
   background: #ffffff;
-  box-shadow: 5px 0 25px rgba(0,0,0,0.1);
-  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 25px;
+  box-shadow: 4px 0 15px rgba(0,0,0,0.15);
+  transition: left 0.3s ease;
+  padding: 20px;
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -197,7 +187,7 @@ body {
 .cart-sidebar h3 {
   color: #b59410;
   font-size: 1.3rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border-bottom: 1px solid #eee2d0;
   padding-bottom: 10px;
 }
@@ -213,37 +203,30 @@ body {
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px dashed #eee2d0;
-  font-size: 0.95rem;
 }
 
 .cart-total-box {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #2c2623;
+  font-size: 1.1rem;
+  font-weight: bold;
   margin: 15px 0;
   text-align: center;
 }
 
 .checkout-btn {
-  background: #25d366;
+  background-color: #25d366;
   color: white;
   border: none;
   padding: 12px;
-  width: 100%;
   border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 700;
+  font-weight: bold;
   cursor: pointer;
   margin-bottom: 8px;
 }
 
 .close-cart-btn {
-  background: #eee2d0;
-  color: #3a312a;
+  background-color: #eee;
   border: none;
   padding: 10px;
-  width: 100%;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
 }
