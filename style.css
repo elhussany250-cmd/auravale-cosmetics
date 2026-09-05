@@ -1,182 +1,255 @@
 /* --- Auravale Cosmetics Premium Styling --- */
 
-/* تصفير الهوامش القياسية */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* إعدادات الجسد العام - استخدم خلفية رخامية فاتحة */
 body {
-  font-family: 'Times New Roman', Times, serif; /* خط كلاسيكي فخم */
-  background-color: #fcfbf8; /* لون أوف وايت رخامي فاتح جداً */
-  /* لإضافة تأثير رخامي خفيف، يمكن فك تعليق السطر التالي واستخدام صورة خلفية رخامية بيضاء */
-  /* background-image: url('images/marble-bg.jpg'); background-size: cover; */
-  color: #4a3c31; /* بني داكن مصقول للكتابة العامة */
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #fcfbf8;
+  color: #4a3c31;
   direction: rtl;
-  padding: 40px 20px;
+  padding-bottom: 50px;
 }
 
-/* رأس المتجر - مستوحى من اللوحة الرخامية في الصورة */
+/* شريط التنقل العلوي المتناسق */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 15px 30px;
+  border-bottom: 2px solid #d4af37;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #b59410;
+  text-decoration: none;
+}
+
+.cart-btn-nav {
+  background-color: #8a7b9c;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cart-btn-nav:hover {
+  background-color: #726284;
+}
+
+/* رأس المتجر */
 .main-header {
   text-align: center;
-  margin-bottom: 50px;
-  background-color: #ffffff; /* خلفية بيضاء نقية */
+  margin: 30px auto;
+  max-width: 1200px;
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  border: 3px solid #d4af37; /* إطار ذهبي رفيع */
+  border: 3px solid #d4af37;
 }
 
 .main-header h1 {
   font-size: 2.5rem;
-  color: #b59410; /* ذهبي أغمق قليلاً للعناوين */
+  color: #b59410;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
 
 .main-header p {
   font-size: 1.1rem;
-  color: #7d6e5c; /* بني فاتح للنص الفرعي */
+  color: #7d6e5c;
   font-style: italic;
 }
 
-/* شبكة عرض المنتجات */
+/* شبكة المنتجات */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1300px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* كارت المنتج - نظيف وفاخر */
 .product-card {
   background: #ffffff;
   border-radius: 12px;
   padding: 20px;
   text-align: center;
-  border: 1px solid #eae1d1; /* حدود خفيفة جداً */
+  border: 1px solid #eae1d1;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(181, 148, 16, 0.1); /* ظل ذهبي خفيف عند الهوفر */
-  border-color: #d4af37; /* تحويل الحدود للذهبي عند الهوفر */
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(181, 148, 16, 0.1);
+  border-color: #d4af37;
 }
 
-/* صور المنتجات */
 .product-card img {
-  max-width: 100%;
-  height: 230px;
+  width: 100%;
+  height: 220px;
   object-fit: contain;
   border-radius: 8px;
   margin-bottom: 15px;
 }
 
-/* عنوان المنتج */
 .product-title {
   font-size: 1.2rem;
-  font-weight: normal; /* ليس عريضاً جداً للحفاظ على الفخامة */
-  margin: 15px 0 10px;
-  color: #4a3c31; /* بني داكن */
+  font-weight: normal;
+  margin: 10px 0;
+  color: #4a3c31;
 }
 
-/* أسعار المنتجات */
 .price-container {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .old-price {
   text-decoration: line-through;
-  color: #a89a8a; /* بني فاتح باهت */
-  font-size: 1rem;
-  margin-left: 10px;
+  color: #a89a8a;
+  font-size: 0.95rem;
+  margin-left: 8px;
 }
 
 .current-price {
-  color: #b59410; /* ذهبي للسعر الحالي */
+  color: #b59410;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
-/* زر الشراء - بنفسجي لافندر هادئ مستوحى من أغصان اللافندر */
-.buy-btn {
-  display: block;
-  background-color: #8a7b9c; /* بنفسجي لافندر مطفي */
-  color: #ffffff;
-  text-decoration: none;
-  padding: 12px 25px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-  width: 100%;
-  transition: background-color 0.3s ease;
-  border: none;
-}
-
-.buy-btn:hover {
-  background-color: #726284; /* لافندر أغمق عند الهوفر */
-}
-/* تنسيق البانر العلوي */
-.banner-container {
-  margin-top: 20px;
-  overflow: hidden;
-  border-radius: 10px;
-}
-.header-banner {
-  width: 100%;
-  max-height: 350px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* شريط التنقل والسلة */
-.navbar {
+/* أزرار أربطة المنتج */
+.card-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffffff;
-  padding: 15px 30px;
-  border-bottom: 2px solid #d4af37;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 8px;
 }
-.logo { font-size: 1.4rem; color: #b59410; text-decoration: none; font-weight: bold; }
-.cart-icon { cursor: pointer; font-size: 1.1rem; color: #4a3c31; font-weight: bold; }
 
-/* أزرار الكارت */
-.card-buttons { display: flex; gap: 10px; margin-top: 10px; }
-.details-btn {
-  background: #f8f5ef;
+.details-link {
+  display: block;
+  background-color: #f8f5ef;
   color: #4a3c31;
   text-decoration: none;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #d4af37;
-  font-size: 0.9rem;
-  flex: 1;
-  text-align: center;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: 0.3s;
 }
 
-/* السلة الجانبية */
+.details-link:hover {
+  background-color: #eae1d1;
+}
+
+.add-cart-btn {
+  background-color: #8a7b9c;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.add-cart-btn:hover {
+  background-color: #726284;
+}
+
+/* نافذة السلة الجانبية */
 .cart-sidebar {
   position: fixed;
   top: 0;
-  left: -350px;
-  width: 300px;
+  left: -380px;
+  width: 320px;
   height: 100%;
-  background: #fff;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-  transition: 0.3s;
-  padding: 20px;
+  background: #ffffff;
+  box-shadow: 4px 0 15px rgba(0,0,0,0.15);
+  transition: left 0.3s ease;
+  padding: 25px;
   z-index: 1000;
-  direction: rtl;
+  display: flex;
+  flex-direction: column;
 }
-.cart-sidebar.active { left: 0; }
-.cart-total { margin: 20px 0; font-weight: bold; font-size: 1.2rem; color: #b59410; }
-.checkout-btn { background: #25d366; color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; }
-.close-cart-btn { background: #ccc; border: none; padding: 8px; width: 100%; margin-top: 10px; cursor: pointer; border-radius: 6px; }
+
+.cart-sidebar.active {
+  left: 0;
+}
+
+.cart-sidebar h3 {
+  color: #b59410;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eae1d1;
+  padding-bottom: 10px;
+}
+
+.cart-items-list {
+  list-style: none;
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.cart-items-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed #eae1d1;
+  font-size: 0.95rem;
+}
+
+.cart-total-box {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4a3c31;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.checkout-btn {
+  background-color: #25d366;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.close-cart-btn {
+  background-color: #eae1d1;
+  color: #4a3c31;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
