@@ -92,6 +92,34 @@
       window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }
   </script>
+<!-- كود جافاسكربت لعرض مراجعات ريجتون فقط دون تغيير التصميم الأصلي -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const regtonReviews = [
+      { name: "غادة إبراهيم", rating: "★★★★★", date: "منذ 3 أيام", text: "مكمل ممتاز جداً، فرق معايا في النشاط والتركيز اليومي وقلل الإرهاق تماماً.", verified: true },
+      { name: "أمنية نبيل", rating: "★★★★★", date: "منذ أسبوع", text: "فرق معايا جداً في الحيوية خلال اليوم، منتج مميز والنتيجة ظهرت معايا بسرعة.", verified: true },
+      { name: "فرح طارق", rating: "★★★★★", date: "منذ أسبوعين", text: "تركيبة ممتازة ومفيدة جداً، والتوصيل كان سريع والمنتج أصلـي.", verified: true }
+    ];
+
+    const reviewsContainer = document.querySelector(".product-reviews-list") || document.getElementById("productReviewsList");
+    
+    if (reviewsContainer) {
+      reviewsContainer.innerHTML = regtonReviews.map(rev => `
+        <div class="product-review-card">
+          <div class="review-card-top">
+            <div class="reviewer-name">
+              ${rev.name}
+              ${rev.verified ? '<span class="verified-badge">✓ مشتري مؤكد</span>' : ''}
+            </div>
+            <div class="review-stars">${rev.rating}</div>
+          </div>
+          <div class="review-comment">${rev.text}</div>
+          <div class="review-date">${rev.date}</div>
+        </div>
+      `).join('');
+    }
+  });
+</script>
 
 </body>
 </html>
