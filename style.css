@@ -1,4 +1,4 @@
-/* --- Auravale Cosmetics Premium Styling --- */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
 
 * {
   margin: 0;
@@ -7,93 +7,88 @@
 }
 
 body {
-  font-family: 'Times New Roman', Times, serif;
-  background-color: #fcfbf8;
-  color: #4a3c31;
+  font-family: 'Tajawal', sans-serif;
+  background-color: #faf8f5;
+  color: #2c2623;
   direction: rtl;
-  padding-bottom: 50px;
 }
 
-/* شريط التنقل العلوي المتناسق */
+/* شريط علوي أنيق بدلاً من الإطار المربع الكبير */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
-  padding: 15px 30px;
-  border-bottom: 2px solid #d4af37;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  background: #ffffff;
+  padding: 15px 5%;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.04);
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid #eee2d0;
 }
 
 .nav-brand {
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: #b59410;
   text-decoration: none;
+  letter-spacing: 0.5px;
 }
 
 .cart-btn-nav {
-  background-color: #8a7b9c;
-  color: #ffffff;
+  background: #8a7b9c;
+  color: #fff;
   border: none;
   padding: 8px 18px;
-  border-radius: 20px;
+  border-radius: 25px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-family: inherit;
-  font-weight: bold;
+  font-weight: 500;
   transition: 0.3s;
 }
 
 .cart-btn-nav:hover {
-  background-color: #726284;
+  background: #726284;
 }
 
-/* رأس المتجر */
+/* هيدر ترحيبي عالي الفخامة */
 .main-header {
   text-align: center;
-  margin: 30px auto;
-  max-width: 1200px;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  border: 3px solid #d4af37;
+  padding: 40px 20px 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .main-header h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: #b59410;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .main-header p {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #7d6e5c;
-  font-style: italic;
 }
 
-/* شبكة المنتجات */
+/* شبكة المنتجات متناسقة المسافات */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 25px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 30px auto;
   padding: 0 20px;
 }
 
+/* كارت المنتج بشبكة ظلال فاخرة */
 .product-card {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 18px;
   text-align: center;
-  border: 1px solid #eae1d1;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f0e6d8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -101,24 +96,24 @@ body {
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(181, 148, 16, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(181, 148, 16, 0.12);
   border-color: #d4af37;
 }
 
 .product-card img {
   width: 100%;
   height: 220px;
-  object-fit: contain;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
 }
 
 .product-title {
-  font-size: 1.2rem;
-  font-weight: normal;
-  margin: 10px 0;
-  color: #4a3c31;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 8px 0;
+  color: #3a312a;
 }
 
 .price-container {
@@ -128,17 +123,17 @@ body {
 .old-price {
   text-decoration: line-through;
   color: #a89a8a;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin-left: 8px;
 }
 
 .current-price {
   color: #b59410;
-  font-weight: bold;
-  font-size: 1.3rem;
+  font-weight: 700;
+  font-size: 1.25rem;
 }
 
-/* أزرار أربطة المنتج */
+/* أزرار الكارت */
 .card-actions {
   display: flex;
   flex-direction: column;
@@ -147,48 +142,48 @@ body {
 
 .details-link {
   display: block;
-  background-color: #f8f5ef;
-  color: #4a3c31;
+  background: #fcfaf7;
+  color: #3a312a;
   text-decoration: none;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #d4af37;
-  font-weight: bold;
-  font-size: 0.95rem;
+  font-weight: 500;
+  font-size: 0.9rem;
   transition: 0.3s;
 }
 
 .details-link:hover {
-  background-color: #eae1d1;
+  background: #f3ece0;
 }
 
 .add-cart-btn {
-  background-color: #8a7b9c;
+  background: #8a7b9c;
   color: #ffffff;
   border: none;
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 0.95rem;
+  font-weight: 500;
+  font-size: 0.9rem;
   font-family: inherit;
   transition: 0.3s;
 }
 
 .add-cart-btn:hover {
-  background-color: #726284;
+  background: #726284;
 }
 
-/* نافذة السلة الجانبية */
+/* السلة الجانبية */
 .cart-sidebar {
   position: fixed;
   top: 0;
-  left: -380px;
+  left: -350px;
   width: 320px;
   height: 100%;
   background: #ffffff;
-  box-shadow: 4px 0 15px rgba(0,0,0,0.15);
-  transition: left 0.3s ease;
+  box-shadow: 5px 0 25px rgba(0,0,0,0.1);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 25px;
   z-index: 1000;
   display: flex;
@@ -201,9 +196,9 @@ body {
 
 .cart-sidebar h3 {
   color: #b59410;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 20px;
-  border-bottom: 1px solid #eae1d1;
+  border-bottom: 1px solid #eee2d0;
   padding-bottom: 10px;
 }
 
@@ -211,45 +206,44 @@ body {
   list-style: none;
   flex-grow: 1;
   overflow-y: auto;
-  margin-bottom: 20px;
 }
 
 .cart-items-list li {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px dashed #eae1d1;
+  border-bottom: 1px dashed #eee2d0;
   font-size: 0.95rem;
 }
 
 .cart-total-box {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #4a3c31;
-  margin-bottom: 15px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2c2623;
+  margin: 15px 0;
   text-align: center;
 }
 
 .checkout-btn {
-  background-color: #25d366;
+  background: #25d366;
   color: white;
   border: none;
   padding: 12px;
   width: 100%;
   border-radius: 8px;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .close-cart-btn {
-  background-color: #eae1d1;
-  color: #4a3c31;
+  background: #eee2d0;
+  color: #3a312a;
   border: none;
   padding: 10px;
   width: 100%;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 500;
 }
