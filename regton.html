@@ -6,37 +6,102 @@
   <title>Regton - Auravale Cosmetics</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* تنسيقات قسم التقييمات المباشرة */
-    .product-reviews-container {
-      max-width: 800px;
-      margin: 40px auto 30px;
-      padding: 0 15px;
-      display: block !important;
+    /* تنسيقات كارت المنتج والنموذج */
+    .product-page-container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .product-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .product-title {
+      font-size: 24px;
+      color: #222;
+      margin-bottom: 8px;
+    }
+    .product-price {
+      font-size: 20px;
+      color: #b59410;
+      font-weight: bold;
+    }
+    .product-desc {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+      margin: 15px 0 25px;
+      text-align: center;
+    }
+    .order-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 500px;
+      margin: 0 auto 20px;
+    }
+    .order-form input, .order-form select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    .btn-submit {
+      background: #b59410;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-submit:hover {
+      background: #967a0d;
+    }
+    .btn-whatsapp {
+      display: block;
+      text-align: center;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      max-width: 500px;
+      margin: 0 auto;
     }
 
+    /* قسم آراء العملاء الخاص بـ Regton */
+    .product-reviews-container {
+      max-width: 800px;
+      margin: 40px auto 20px;
+      padding: 0 15px;
+    }
     .reviews-header {
       text-align: center;
       margin-bottom: 20px;
     }
-
     .reviews-header h3 {
       color: #b59410;
       font-size: 20px;
       margin: 0 0 5px 0;
       font-weight: bold;
     }
-
     .reviews-summary {
       font-size: 13px;
       color: #666;
     }
-
     .product-reviews-list {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
-
     .product-review-card {
       background: #ffffff;
       border: 1px solid #f0eada;
@@ -44,14 +109,12 @@
       padding: 15px 18px;
       box-shadow: 0 3px 8px rgba(0,0,0,0.04);
     }
-
     .review-card-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 8px;
     }
-
     .reviewer-name {
       font-size: 14px;
       font-weight: bold;
@@ -60,7 +123,6 @@
       align-items: center;
       gap: 8px;
     }
-
     .verified-badge {
       background: #e6f4ea;
       color: #137333;
@@ -69,19 +131,16 @@
       border-radius: 12px;
       font-weight: normal;
     }
-
     .review-stars {
       color: #f39c12;
       font-size: 14px;
       letter-spacing: 2px;
     }
-
     .review-comment {
       font-size: 13px;
       color: #444;
       line-height: 1.6;
     }
-
     .review-date {
       font-size: 11px;
       color: #999;
@@ -92,10 +151,35 @@
 </head>
 <body>
 
-  <!-- هنا يوضع محتوى صفحة المنتج الحالي الخاصة بك (الصور والوصف وأزرار الشراء) -->
+  <div class="product-page-container">
+    <div class="product-header">
+      <h1 class="product-title">Regton - ريجتون</h1>
+      <div class="product-price">المكمل والمقوي العام المميز</div>
+    </div>
 
+    <p class="product-desc">
+      مكمل غذائي ومقوي عام يعمل على تعزيز النشاط والحيوية وتقليل الإرهاق اليومي، يمنح جسمك الطاقة المتوازنة والعناصر التي يحتاجها يومياً.
+    </p>
 
-  <!-- ================= قسم آراء العملاء ================= -->
+    <!-- نموذج الطلب المباشر -->
+    <form class="order-form">
+      <input type="text" placeholder="الاسم بالكامل" required>
+      <input type="tel" placeholder="رقم الهاتف" required>
+      <input type="text" placeholder="العنوان بالتفصيل" required>
+      <select required>
+        <option value="">اختر المحافظة</option>
+        <option value="cairo">القاهرة</option>
+        <option value="giza">الجيزة</option>
+        <option value="alex">الإسكندرية</option>
+        <option value="other">باقي المحافظات</option>
+      </select>
+      <button type="submit" class="btn-submit">تأكيد الطلب 🚀</button>
+    </form>
+
+    <a href="https://wa.me/201106014523" class="btn-whatsapp" target="_blank">تحدث معنا عبر الواتساب 💬</a>
+  </div>
+
+  <!-- ================= قسم آراء العملاء لمنتج ريجتون ================= -->
   <div class="product-reviews-container">
     <div class="reviews-header">
       <h3>آراء وتجارب العميلات ✨</h3>
@@ -103,7 +187,6 @@
     </div>
 
     <div class="product-reviews-list">
-      <!-- تقييم 1 -->
       <div class="product-review-card">
         <div class="review-card-top">
           <div class="reviewer-name">
@@ -116,7 +199,6 @@
         <div class="review-date">منذ 3 أيام</div>
       </div>
 
-      <!-- تقييم 2 -->
       <div class="product-review-card">
         <div class="review-card-top">
           <div class="reviewer-name">
@@ -129,7 +211,6 @@
         <div class="review-date">منذ أسبوع</div>
       </div>
 
-      <!-- تقييم 3 -->
       <div class="product-review-card">
         <div class="review-card-top">
           <div class="reviewer-name">
@@ -143,62 +224,7 @@
       </div>
     </div>
   </div>
-  <!-- ================= نهاية قسم التقييمات ================= -->
-<!-- ================= قسم آراء العملاء لمنتج ريجتون ================= -->
-<style>
-  .product-reviews-container {
-    max-width: 800px;
-    margin: 40px auto 30px;
-    padding: 0 15px;
-  }
-  .reviews-header { text-align: center; margin-bottom: 20px; }
-  .reviews-header h3 { color: #b59410; font-size: 20px; margin: 0 0 5px 0; font-weight: bold; }
-  .reviews-summary { font-size: 13px; color: #666; }
-  .product-reviews-list { display: flex; flex-direction: column; gap: 12px; }
-  .product-review-card { background: #ffffff; border: 1px solid #f0eada; border-radius: 12px; padding: 15px 18px; box-shadow: 0 3px 8px rgba(0,0,0,0.04); }
-  .review-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-  .reviewer-name { font-size: 14px; font-weight: bold; color: #222; display: flex; align-items: center; gap: 8px; }
-  .verified-badge { background: #e6f4ea; color: #137333; font-size: 11px; padding: 2px 8px; border-radius: 12px; font-weight: normal; }
-  .review-stars { color: #f39c12; font-size: 14px; letter-spacing: 2px; }
-  .review-comment { font-size: 13px; color: #444; line-height: 1.6; }
-  .review-date { font-size: 11px; color: #999; margin-top: 8px; text-align: left; }
-</style>
+  <!-- ================= نهاية قسم الآراء ================= -->
 
-<div class="product-reviews-container">
-  <div class="reviews-header">
-    <h3>آراء وتجارب العميلات ✨</h3>
-    <div class="reviews-summary">تقييم 4.9 من 5 بناءً على أحدث المراجعات</div>
-  </div>
-
-  <div class="product-reviews-list">
-    <div class="product-review-card">
-      <div class="review-card-top">
-        <div class="reviewer-name">غادة إبراهيم <span class="verified-badge">✓ مشتري مؤكد</span></div>
-        <div class="review-stars">★★★★★</div>
-      </div>
-      <div class="review-comment">مكمل ممتاز جداً، فرق معايا في النشاط والتركيز اليومي وقلل الإرهاق تماماً.</div>
-      <div class="review-date">منذ 3 أيام</div>
-    </div>
-
-    <div class="product-review-card">
-      <div class="review-card-top">
-        <div class="reviewer-name">أمنية نبيل <span class="verified-badge">✓ مشتري مؤكد</span></div>
-        <div class="review-stars">★★★★★</div>
-      </div>
-      <div class="review-comment">فرق معايا جداً في الحيوية خلال اليوم، منتج مميز والنتيجة ظهرت معايا بسرعة.</div>
-      <div class="review-date">منذ أسبوع</div>
-    </div>
-
-    <div class="product-review-card">
-      <div class="review-card-top">
-        <div class="reviewer-name">فرح طارق <span class="verified-badge">✓ مشتري مؤكد</span></div>
-        <div class="review-stars">★★★★★</div>
-      </div>
-      <div class="review-comment">تركيبة ممتازة ومفيدة جداً، والتوصيل كان سريع والمنتج أصلـي.</div>
-      <div class="review-date">منذ أسبوعين</div>
-    </div>
-  </div>
-</div>
-<!-- ================= نهاية قسم الآراء ================= -->
 </body>
 </html>
