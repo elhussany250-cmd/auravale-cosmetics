@@ -306,7 +306,7 @@
 
     .review-card {
       background: #faf8f5;
-      padding: 10px;
+      padding: 12px;
       border-radius: 8px;
       border: 1px solid #eee;
     }
@@ -316,6 +316,13 @@
       font-weight: bold;
       color: #222;
       margin-bottom: 2px;
+    }
+
+    .review-product-tag {
+      font-size: 10px;
+      color: var(--primary-gold);
+      font-weight: bold;
+      margin-bottom: 4px;
     }
 
     .review-text {
@@ -704,24 +711,11 @@
 
     </div>
 
+    <!-- قسم المراجعات المتغير والمخصص -->
     <div class="reviews-section">
       <h2 class="section-title">آراء عميلاتنا ✨</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="rating-stars">★★★★★</div>
-          <div class="review-author">سارة م.</div>
-          <p class="review-text">منتجات ممتازة جداً والتوصيل كان سريع، كريم Evatar فرق معايا جداً من أول أسبوع.</p>
-        </div>
-        <div class="review-card">
-          <div class="rating-stars">★★★★★</div>
-          <div class="review-author">مريم A.</div>
-          <p class="review-text">غسول Revasure ممتاز للبشرة الدهنية، بنظف عميق من غير ما ينشف البشرة.</p>
-        </div>
-        <div class="review-card">
-          <div class="rating-stars">★★★★★</div>
-          <div class="review-author">نوران ح.</div>
-          <p class="review-text">تجربة شراء سهلة جداً والمنتجات أصلية والتغليف راقي للغاية.</p>
-        </div>
+      <div class="reviews-grid" id="reviewsGrid">
+        <!-- يتم تحميل المراجعات المخصصة عبر الكود -->
       </div>
     </div>
 
@@ -768,8 +762,61 @@
   </div>
 
   <script>
-    // ⚠️ استبدل الرقم ده برقم الواتساب الخاص بمتجرك (بدون علامة + وبدايته كود الدولة، مثلاً 20 لمصر)
     const MY_WHATSAPP_NUMBER = "201000000000"; 
+
+    // قاعدة بيانات المراجعات المخصصة والمطابقة لكل منتج بشكل دقيق
+    const productReviews = [
+      {
+        product: "Hairytec Anti-Hairloss Shampoo",
+        author: "داليا جلال",
+        rating: 5,
+        text: "الشامبو ممتاز جداً لمنع التساقط! لاحظت من أول أسبوعين إن التساقط قل كتير وشعري بقى أقوى."
+      },
+      {
+        product: "Hairytec Anti-Dandruff Shampoo",
+        author: "ميادة أحمد",
+        rating: 5,
+        text: "خلصني من القشرة تماماً والحكة خفت من أول استخدام، وكمان مش بينشف الشعر زي باقي أنواع شامبو القشرة."
+      },
+      {
+        product: "Evatar Cream",
+        author: "سارة محمود",
+        rating: 5,
+        text: "كريم الترطيب بتاعه خطير، ملمسه خفيف جداً على البشرة والترطيب بيفضل مستمر طوال اليوم."
+      },
+      {
+        product: "Altibro Hair Serum",
+        author: "نوران القاضي",
+        rating: 5,
+        text: "السيروم بيدي لمعة تحفة للشعر وبيقلل الهيشان جداً، ومش بيدهن خالص."
+      },
+      {
+        product: "Revasure Skin Cleanser",
+        author: "مريم علي",
+        rating: 5,
+        text: "غسول بطل للبشرة الدهنية، بينظف مسام البشرة بعمق ومن غير ما يسبب أي جفاف."
+      },
+      {
+        product: "Jonacare Cream SPF30",
+        author: "أسماء هاني",
+        rating: 5,
+        text: "واقي شمس ممتاز، مش بيترك أي طبقة بيضا وبيحمي البشرة جداً في المصيف والحر."
+      }
+    ];
+
+    function renderReviews() {
+      const grid = document.getElementById('reviewsGrid');
+      // اختيار 3 مراجعات متنوعة وعرضها
+      const selectedReviews = productReviews.slice(0, 3);
+      grid.innerHTML = selectedReviews.map(rev => `
+        <div class="review-card">
+          <div class="rating-stars">★★★★★</div>
+          <div class="review-author">${rev.author}</div>
+          <div class="review-product-tag">عن منتج: ${rev.product}</div>
+          <p class="review-text">"${rev.text}"</p>
+        </div>
+      `).join('');
+    }
 
     function filterProducts(category, element) {
       const tabs = document.querySelectorAll('.tab-btn');
@@ -905,7 +952,6 @@
       const encodedMessage = encodeURIComponent(message);
       const whatsappURL = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodedMessage}`;
 
-      // فتح الواتساب في نافذة جديدة
       window.open(whatsappURL, '_blank');
     }
 
@@ -922,14 +968,16 @@
     function closeCart() {
       cartDrawer.classList.remove('open');
       cartOverlay.classList.remove('open');
-      showCartView(); // إعادة السلة لوضعها الطبيعي عند الإغلاق
+      showCartView();
     }
 
     if (cartBtn) cartBtn.addEventListener('click', openCart);
     if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
     if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
 
+    // تشغيل القوائم المبدئية
     renderCart();
+    renderReviews();
   </script>
 </body>
 </html>
