@@ -4,13 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jonacare Cream SPF30 - Auravale Cosmetics</title>
-  <link rel="stylesheet" href="style.css?v=80">
+  <link rel="stylesheet" href="style.css?v=500">
+  <style>
+    .product-reviews-container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .reviews-header {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .reviews-header h3 {
+      color: #b59410;
+      margin-bottom: 5px;
+    }
+    .reviews-summary {
+      font-size: 13px;
+      color: #666;
+    }
+    .product-reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .product-review-card {
+      background: #faf8f5;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #f0e6d2;
+    }
+    .review-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .reviewer-name {
+      font-weight: bold;
+      font-size: 14px;
+      color: #333;
+    }
+    .verified-badge {
+      font-size: 10px;
+      color: #27ae60;
+      background: #e8f8f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-right: 5px;
+    }
+    .review-stars {
+      color: #f39c12;
+      font-size: 12px;
+    }
+    .review-comment {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.5;
+    }
+    .review-date {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 6px;
+    }
+  </style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <a href="index.html" class="nav-brand">Auravale Cosmetics</a>
-    <a href="index.html" class="cart-btn-nav" style="text-decoration: none;">🏠 الرئيسية</a>
+  <nav class="navbar" style="background: #fff; padding: 15px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center;">
+    <a href="index.html" class="nav-brand" style="color: #b59410; text-decoration: none; font-weight: 800; font-size: 18px;">Auravale Cosmetics</a>
+    <a href="index.html" class="cart-btn-nav" style="text-decoration: none; background: #1a1a1a; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold;">🏠 الرئيسية</a>
   </nav>
 
   <main style="max-width: 1000px; margin: 30px auto; padding: 0 15px; box-sizing: border-box;">
@@ -34,7 +100,7 @@
         </div>
 
         <div style="background: #fdfbf7; border: 1px solid #f0e6d2; padding: 20px; border-radius: 10px;">
-          <h4 style="margin-top: 0; color: #b59410; margin-bottom: 15px; text-align: center;">أدخل بياناتك لإتمام الطلب:</h4>
+          <h4 style="margin-top: 0; color: #b59410; margin-bottom: 15px; text-align: center;">أدخل بياناتك لإتمام الطلب مباشرة:</h4>
           
           <form onsubmit="sendProductOrder(event, 'Jonacare Cream SPF30', 185)">
             <div style="margin-bottom: 10px;">
@@ -53,11 +119,15 @@
             </div>
 
             <button type="submit" style="width: 100%; padding: 12px; background: #b59410; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; margin-bottom: 8px; transition: 0.3s;" onmouseover="this.style.background='#967a0d'" onmouseout="this.style.background='#b59410'">
-              تأكيد الطلب 🚀
+              تأكيد الطلب عبر واتساب 🚀
+            </button>
+
+            <button type="button" onclick="addToCartAndGo('Jonacare Cream SPF30', 185, 'jonacare.jpg')" style="width: 100%; padding: 10px; background: #1a1a1a; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; margin-bottom: 8px;">
+              🛒 إضافة للسلة ومتابعة التسوق
             </button>
 
             <button type="button" onclick="chatWhatsApp('Jonacare Cream SPF30')" style="width: 100%; padding: 10px; background: #25d366; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">
-              تحدث معنا عبر الواتساب 💬
+              تحدث معنا للاستفسار 💬
             </button>
           </form>
         </div>
@@ -66,8 +136,56 @@
     </div>
   </main>
 
+  <!-- قسم المراجعات الخاص بكريم جوناكير -->
+  <div class="product-reviews-container">
+    <div class="reviews-header">
+      <h3>آراء وتجارب العميلات مع Jonacare Cream SPF30 ✨</h3>
+      <div class="reviews-summary">تقييم 4.9 من 5 بناءً على أحدث المراجعات</div>
+    </div>
+
+    <div class="product-reviews-list">
+      
+      <div class="product-review-card">
+        <div class="review-card-top">
+          <div class="reviewer-name">
+            مي جابر
+            <span class="verified-badge">✓ مشتري مؤكد</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-comment">صن بلوك ممتاز جداً! مبيسيبش أي طبقة بيضاء على البشرة، وبيرطب جداً وبيدي نضارة وإشراقة طبيعية.</div>
+        <div class="review-date">منذ يومين</div>
+      </div>
+
+      <div class="product-review-card">
+        <div class="review-card-top">
+          <div class="reviewer-name">
+            هدير سامي
+            <span class="verified-badge">✓ مشتري مؤكد</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-comment">حماية جيدة جداً من الشمس والتصيغ، ومريح على البشرة تحت الميك أب ومش بيعمل أي ملمس تزييت.</div>
+        <div class="review-date">منذ 5 أيام</div>
+      </div>
+
+      <div class="product-review-card">
+        <div class="review-card-top">
+          <div class="reviewer-name">
+            داليا البحيري
+            <span class="verified-badge">✓ مشتري مؤكد</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-comment">تركيبته المغذية والواقية خلت بشرتي أحسن بكتير في حر الصيف، وعجبني جداً إنه بيساعد في توحيد لون البشرة.</div>
+        <div class="review-date">منذ أسبوع</div>
+      </div>
+
+    </div>
+  </div>
+
   <script>
-    const PHONE_NUMBER = "201000000000";
+    const PHONE_NUMBER = "201106014523";
 
     function sendProductOrder(event, productName, price) {
       event.preventDefault();
@@ -87,57 +205,25 @@
       window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
+    function addToCartAndGo(title, price, image) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let existingIndex = cart.findIndex(item => item.title === title);
+
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push({ title: title, price: price, image: image, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('تمت إضافة المنتج للسلة بنجاح!');
+      window.location.href = 'index.html';
+    }
+
     function chatWhatsApp(productName) {
       const msg = `مرحباً Auravale Cosmetics، أريد الاستفسار عن منتج: ${productName}`;
       window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }
   </script>
-<div class="product-reviews-container">
-  <div class="reviews-header">
-    <h3>آراء وتجارب العميلات ✨</h3>
-    <div class="reviews-summary">تقييم 4.9 من 5 بناءً على أحدث المراجعات</div>
-  </div>
-
-  <div class="product-reviews-list">
-    
-    <div class="product-review-card">
-      <div class="review-card-top">
-        <div class="reviewer-name">
-          سارة محمود
-          <span class="verified-badge">✓ مشتري مؤكد</span>
-        </div>
-        <div class="review-stars">★★★★★</div>
-      </div>
-      <div class="review-comment">كريم ممتاز جداً لمحيط العين والبشرة! لاحظت ترطيب عميق وقلت الهالات في وقت قصير.</div>
-      <div class="review-date">منذ يومين</div>
-    </div>
-
-    <div class="product-review-card">
-      <div class="review-card-top">
-        <div class="reviewer-name">
-          ندى خالد
-          <span class="verified-badge">✓ مشتري مؤكد</span>
-        </div>
-        <div class="review-stars">★★★★★</div>
-      </div>
-      <div class="review-comment">ملمسه خفيف جداً ولا يترك أي أثر دهني. بنصح بيه أي حد بشرته حساسة.</div>
-      <div class="review-date">منذ أسبوع</div>
-    </div>
-
-    <div class="product-review-card">
-      <div class="review-card-top">
-        <div class="reviewer-name">
-          أميرة الفقي
-          <span class="verified-badge">✓ مشتري مؤكد</span>
-        </div>
-        <div class="review-stars">★★★★★</div>
-      </div>
-      <div class="review-comment">التغليف رائع والمنتج أصلـي 100%. النتيجة ظهرت معايا من أول أسبوع استخدام.</div>
-      <div class="review-date">منذ 10 أيام</div>
-    </div>
-
-  </div>
-</div>
-
 </body>
 </html>
