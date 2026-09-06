@@ -455,3 +455,43 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+/* استبدال الخطوط والألوان العامة */
+body {
+  background-color: #fcfbf9 !important;
+  color: #1a1a1a !important;
+  font-family: 'Readex Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* عناوين فاخرة */
+h1, h2, h3, .nav-brand {
+  font-family: 'Amiri', serif !important;
+  letter-spacing: 0.5px;
+}
+
+/* لون الذهبي الفاخر الجديد */
+.nav-brand, h2, .price-new, h3 {
+  color: #c5a059 !important;
+}
+
+/* الأزرار الفاخرة */
+button[type="submit"] {
+  background: #1a1a1a !important;
+  color: #c5a059 !important;
+  border: 1px solid #c5a059 !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  letter-spacing: 1px;
+  transition: all 0.4s ease !important;
+}
+
+button[type="submit"]:hover {
+  background: #c5a059 !important;
+  color: #ffffff !important;
+}
+
+/* كروت المراجعات والمنتجات */
+.product-review-card, main > div {
+  border: 1px solid #f0e6d2 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+}
