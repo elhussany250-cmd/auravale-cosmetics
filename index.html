@@ -54,10 +54,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      <a href="cart.html">
-  🛒 السلة
-  <span>0</span>
-</a>
+     
     }
 
     .brand-logo {
@@ -337,10 +334,10 @@
   <header class="header">
     <div class="header-container">
       <a href="index.html" class="brand-logo">Auravale Cosmetics</a>
-      <a href="cart.html" class="cart-btn" id="cartBtn">
-        🛒 السلة
-        <span class="cart-count" id="cartCount">0</span>
-      </a>
+   <button class="cart-btn" id="cartBtn">
+    🛒 السلة
+    <span class="cart-count" id="cartCount">0</span>
+</button>
     </div>
   </header>
 
@@ -542,8 +539,46 @@
     }
 
     updateCartBadge();
-  </script>
+    const cartBtn = document.getElementById('cart-btn');
+const closeCartBtn = document.getElementById('close-cart-btn');
+const cartDrawer = document.getElementById('cart-drawer');
+const cartOverlay = document.getElementById('cart-overlay');
 
+// فتح السلة
+cartBtn.addEventListener('click', () => {
+  cartDrawer.classList.add('open');
+  cartOverlay.classList.add('open');
+});
+
+// إغلاق السلة بالـ X المدوّر أو الضغط على الخلفية
+function closeCart() {
+  cartDrawer.classList.remove('open');
+  cartOverlay.classList.remove('open');
+}
+
+closeCartBtn.addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+  </script>
+<!-- Cart Drawer Panel -->
+<div id="cart-overlay" class="cart-overlay"></div>
+<div id="cart-drawer" class="cart-drawer">
+  <div class="cart-header">
+    <h2>سلة التسوق 🛒</h2>
+    <button id="close-cart-btn" class="close-btn">&times;</button>
+  </div>
+
+  <div id="cart-items" class="cart-items">
+    <!-- المنتجات هتتضاف هنا بالـ JavaScript -->
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>الإجمالي:</span>
+      <span id="cart-total-price">0 ج.م</span>
+    </div>
+    <button class="checkout-btn">متابعة الشراء</button>
+  </div>
+</div>
 </body>
 </html>
 
