@@ -1,349 +1,1967 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Auravale Cosmetics - المتجر الرئيسي</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Readex+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="style.css?v=600">
+
+  <link rel="stylesheet" href="style.css?v=400">
+
+  <style>
+
+    :root {
+
+      --primary-gold: #b59410;
+
+      --primary-hover: #967a0d;
+
+      --bg-light: #faf8f5;
+
+      --dark-btn: #1a1a1a;
+
+      --dark-hover: #333333;
+
+    }
+
+
+
+    * {
+
+      box-sizing: border-box;
+
+      margin: 0;
+
+      padding: 0;
+
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+
+
+
+    body {
+
+      background-color: var(--bg-light);
+
+      color: #333;
+
+      padding-bottom: 40px;
+
+    }
+
+
+
+    /* Top Announcement Bar */
+
+    .announcement-bar {
+
+      background: var(--primary-gold);
+
+      color: #ffffff;
+
+      text-align: center;
+
+      padding: 6px 10px;
+
+      font-size: 11px;
+
+      font-weight: bold;
+
+      letter-spacing: 0.3px;
+
+    }
+
+
+
+    /* Header */
+
+    .header {
+
+      background: #ffffff;
+
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
+      padding: 10px 12px;
+
+    }
+
+
+
+    .header-container {
+
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+    }
+
+
+
+    .brand-logo {
+
+      font-size: 16px;
+
+      font-weight: 800;
+
+      color: var(--primary-gold);
+
+      text-decoration: none;
+
+    }
+
+
+
+    .cart-btn {
+
+      background: var(--dark-btn);
+
+      color: white;
+
+      padding: 6px 14px;
+
+      border-radius: 20px;
+
+      border: none;
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 6px;
+
+      cursor: pointer;
+
+      transition: background 0.3s;
+
+    }
+
+
+
+    .cart-btn:hover {
+
+      background: var(--dark-hover);
+
+    }
+
+
+
+    .cart-count {
+
+      background: var(--primary-gold);
+
+      color: #ffffff;
+
+      border-radius: 50%;
+
+      padding: 2px 6px;
+
+      font-size: 10px;
+
+      font-weight: bold;
+
+    }
+
+
+
+    /* Hero Banner */
+
+    .hero-banner {
+
+      max-width: 1200px;
+
+      margin: 10px auto;
+
+      padding: 0 10px;
+
+    }
+
+
+
+    .hero-banner img {
+
+      width: 100%;
+
+      height: auto;
+
+      border-radius: 12px;
+
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+      display: block;
+
+    }
+
+
+
+    /* Container */
+
+    .container {
+
+      max-width: 1200px;
+
+      margin: 15px auto;
+
+      padding: 0 10px;
+
+    }
+
+
+
+    .section-title {
+
+      text-align: center;
+
+      font-size: 18px;
+
+      color: var(--primary-gold);
+
+      margin-bottom: 15px;
+
+      font-weight: bold;
+
+    }
+
+
+
+    /* Category Tabs */
+
+    .category-tabs {
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      margin-bottom: 20px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+
+    .tab-btn {
+
+      padding: 8px 16px;
+
+      background: #ffffff;
+
+      color: #555;
+
+      border: 1px solid #ddd;
+
+      border-radius: 20px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+
+    }
+
+
+
+    .tab-btn.active {
+
+      background: var(--primary-gold);
+
+      color: #ffffff;
+
+      border-color: var(--primary-gold);
+
+      box-shadow: 0 2px 6px rgba(181, 148, 16, 0.3);
+
+    }
+
+
+
+    /* Grid */
+
+    .products-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 10px;
+
+    }
+
+
+
+    @media (min-width: 768px) {
+
+      .products-grid {
+
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+        gap: 20px;
+
+      }
+
+    }
+
+
+
+    .product-card {
+
+      background: #ffffff;
+
+      border-radius: 12px;
+
+      padding: 10px;
+
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+      text-align: center;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+
+      border: 1px solid #f0eada;
+
+      position: relative;
+
+    }
+
+
+
+    .product-card.hidden {
+
+      display: none !important;
+
+    }
+
+
+
+    /* Discount Badge */
+
+    .badge {
+
+      position: absolute;
+
+      top: 15px;
+
+      right: 15px;
+
+      background: #d9534f;
+
+      color: white;
+
+      font-size: 10px;
+
+      font-weight: bold;
+
+      padding: 3px 7px;
+
+      border-radius: 12px;
+
+      z-index: 10;
+
+    }
+
+
+
+    .product-card img {
+
+      width: 100%;
+
+      height: 140px;
+
+      object-fit: cover;
+
+      border-radius: 8px;
+
+      margin-bottom: 8px;
+
+    }
+
+
+
+    .product-title {
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      color: #222;
+
+      margin-bottom: 3px;
+
+      line-height: 1.3;
+
+      height: 34px;
+
+      display: -webkit-box;
+
+      -webkit-line-clamp: 2;
+
+      -webkit-box-orient: vertical;
+
+      overflow: hidden;
+
+    }
+
+
+
+    /* Stars */
+
+    .rating-stars {
+
+      color: #f39c12;
+
+      font-size: 11px;
+
+      margin-bottom: 4px;
+
+    }
+
+
+
+    .rating-stars span {
+
+      color: #777;
+
+      font-size: 10px;
+
+      margin-right: 2px;
+
+    }
+
+
+
+    .product-price {
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      color: var(--primary-gold);
+
+      margin-bottom: 8px;
+
+    }
+
+
+
+    .product-price span {
+
+      text-decoration: line-through;
+
+      color: #aaa;
+
+      font-size: 11px;
+
+      margin-right: 4px;
+
+    }
+
+
+
+    .card-buttons {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 6px;
+
+    }
+
+
+
+    .btn-details {
+
+      display: block;
+
+      width: 100%;
+
+      padding: 8px 4px;
+
+      background: var(--primary-gold);
+
+      color: #ffffff;
+
+      text-decoration: none;
+
+      border-radius: 6px;
+
+      font-weight: bold;
+
+      font-size: 11px;
+
+      border: none;
+
+      transition: background 0.3s;
+
+    }
+
+
+
+    .btn-details:hover {
+
+      background: var(--primary-hover);
+
+    }
+
+
+
+    .btn-add-cart {
+
+      width: 100%;
+
+      padding: 8px 4px;
+
+      background: var(--dark-btn);
+
+      color: #ffffff;
+
+      border: none;
+
+      border-radius: 6px;
+
+      font-weight: bold;
+
+      font-size: 11px;
+
+      cursor: pointer;
+
+      transition: background 0.3s;
+
+    }
+
+
+
+    .btn-add-cart:hover {
+
+      background: var(--dark-hover);
+
+    }
+
+
+
+    /* Reviews Section */
+
+    .reviews-section {
+
+      margin-top: 35px;
+
+      background: #ffffff;
+
+      border-radius: 12px;
+
+      padding: 15px 12px;
+
+      border: 1px solid #f0eada;
+
+    }
+
+
+
+    .reviews-grid {
+
+      display: grid;
+
+      grid-template-columns: 1fr;
+
+      gap: 10px;
+
+    }
+
+
+
+    @media (min-width: 768px) {
+
+      .reviews-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+
+      }
+
+    }
+
+
+
+    .review-card {
+
+      background: #faf8f5;
+
+      padding: 12px;
+
+      border-radius: 8px;
+
+      border: 1px solid #eee;
+
+    }
+
+
+
+    .review-author {
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      color: #222;
+
+      margin-bottom: 2px;
+
+    }
+
+
+
+    .review-product-tag {
+
+      font-size: 10px;
+
+      color: var(--primary-gold);
+
+      font-weight: bold;
+
+      margin-bottom: 4px;
+
+    }
+
+
+
+    .review-text {
+
+      font-size: 11px;
+
+      color: #555;
+
+      line-height: 1.4;
+
+    }
+
+
+
+    /* Cart Drawer Styles */
+
+    .cart-overlay {
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      background: rgba(0, 0, 0, 0.5);
+
+      display: none;
+
+      z-index: 9998;
+
+    }
+
+
+
+    .cart-drawer {
+
+      position: fixed;
+
+      top: 0;
+
+      right: -380px;
+
+      width: 350px;
+
+      max-width: 85%;
+
+      height: 100%;
+
+      background: #fff;
+
+      box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+
+      transition: right 0.3s ease-in-out;
+
+      z-index: 9999;
+
+      display: flex;
+
+      flex-direction: column;
+
+    }
+
+
+
+    .cart-drawer.open {
+
+      right: 0;
+
+    }
+
+
+
+    .cart-overlay.open {
+
+      display: block;
+
+    }
+
+
+
+    .cart-header {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding: 15px 20px;
+
+      border-bottom: 1px solid #eee;
+
+    }
+
+
+
+    .close-btn {
+
+      background: #f0f0f0;
+
+      border: none;
+
+      width: 32px;
+
+      height: 32px;
+
+      border-radius: 50%;
+
+      font-size: 20px;
+
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      line-height: 1;
+
+    }
+
+
+
+    .close-btn:hover {
+
+      background: #e0e0e0;
+
+    }
+
+
+
+    .cart-items {
+
+      flex: 1;
+
+      padding: 15px;
+
+      overflow-y: auto;
+
+    }
+
+
+
+    .empty-cart-msg {
+
+      text-align: center;
+
+      color: #888;
+
+      margin-top: 40px;
+
+    }
+
+
+
+    .cart-item-row {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 10px 0;
+
+      border-bottom: 1px solid #eee;
+
+    }
+
+
+
+    .cart-item-info {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+    }
+
+
+
+    .cart-item-info img {
+
+      width: 45px;
+
+      height: 45px;
+
+      object-fit: cover;
+
+      border-radius: 6px;
+
+    }
+
+
+
+    .cart-item-title {
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+    }
+
+
+
+    .cart-item-price {
+
+      font-size: 11px;
+
+      color: var(--primary-gold);
+
+    }
+
+
+
+    .cart-controls {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 6px;
+
+    }
+
+
+
+    .qty-btn {
+
+      background: #f0f0f0;
+
+      border: none;
+
+      width: 22px;
+
+      height: 22px;
+
+      border-radius: 4px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+    }
+
+
+
+    .remove-btn {
+
+      background: none;
+
+      border: none;
+
+      color: #d9534f;
+
+      cursor: pointer;
+
+      font-size: 14px;
+
+      margin-right: 5px;
+
+    }
+
+
+
+    .cart-footer {
+
+      padding: 20px;
+
+      border-top: 1px solid #eee;
+
+      background: #fafafa;
+
+    }
+
+
+
+    .cart-total {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-weight: bold;
+
+      font-size: 16px;
+
+      margin-bottom: 12px;
+
+    }
+
+
+
+    .checkout-btn {
+
+      width: 100%;
+
+      padding: 12px;
+
+      background: var(--dark-btn);
+
+      color: #fff;
+
+      border: none;
+
+      border-radius: 6px;
+
+      font-size: 15px;
+
+      cursor: pointer;
+
+    }
+
+
+
+    .checkout-btn:hover {
+
+      background: var(--dark-hover);
+
+    }
+
+
+
+    /* Checkout Form Styles */
+
+    .checkout-form-container {
+
+      display: none;
+
+      flex-direction: column;
+
+      gap: 12px;
+
+      padding: 15px;
+
+    }
+
+
+
+    .checkout-form-container.active {
+
+      display: flex;
+
+    }
+
+
+
+    .form-group {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 4px;
+
+      text-align: right;
+
+    }
+
+
+
+    .form-group label {
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      color: #333;
+
+    }
+
+
+
+    .form-group input, .form-group textarea {
+
+      padding: 8px 10px;
+
+      border: 1px solid #ccc;
+
+      border-radius: 6px;
+
+      font-size: 13px;
+
+      outline: none;
+
+    }
+
+
+
+    .form-group input:focus, .form-group textarea:focus {
+
+      border-color: var(--primary-gold);
+
+    }
+
+
+
+    .whatsapp-btn {
+
+      background: #25D366;
+
+      color: white;
+
+      border: none;
+
+      padding: 12px;
+
+      border-radius: 6px;
+
+      font-weight: bold;
+
+      font-size: 14px;
+
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      margin-top: 10px;
+
+      transition: background 0.3s;
+
+    }
+
+
+
+    .whatsapp-btn:hover {
+
+      background: #1ebc57;
+
+    }
+
+
+
+    .back-btn {
+
+      background: transparent;
+
+      border: none;
+
+      color: #666;
+
+      font-size: 12px;
+
+      cursor: pointer;
+
+      text-decoration: underline;
+
+      align-self: flex-start;
+
+    }
+
+  </style>
+
 </head>
+
 <body>
 
+
+
   <div class="announcement-bar">
-    شحن مجاني للطلبات المميزة | خصومات حصريّة لفترة محدودة
+
+    🚚 شحن مجاني للطلبات المميزة | خصومات حصريّة لفترة محدودة!
+
   </div>
 
-  <header class="navbar">
-    <a href="index.html" class="nav-brand">Auravale Cosmetics</a>
-    <button class="cart-btn-nav" id="cartBtn">
-      السلة (<span id="cartCount">0</span>)
-    </button>
+
+
+  <header class="header">
+
+    <div class="header-container">
+
+      <a href="index.html" class="brand-logo">Auravale Cosmetics</a>
+
+      <button class="cart-btn" id="cartBtn">
+
+        🛒 السلة
+
+        <span class="cart-count" id="cartCount">0</span>
+
+      </button>
+
+    </div>
+
   </header>
 
-  <div class="banner-section">
-    <img src="banner.jpg" alt="Auravale Cosmetics" class="hero-banner-img" onerror="this.src='evatar.jpg';">
+
+
+  <div class="hero-banner">
+
+    <img src="banner.jpg" alt="Auravale Cosmetics" onerror="this.src='evatar.jpg';">
+
   </div>
 
-  <main class="container">
-    <div class="main-header">
-      <h1 class="section-title">منتجاتنا المميزة للعناية والجمال</h1>
-      <p class="subtitle">تشكيلة مختارة بعناية لجمالك اليومي</p>
-    </div>
+
+
+  <div class="container">
+
+    <h1 class="section-title">منتجاتنا المميزة للعناية والجمال</h1>
+
     
+
     <div class="category-tabs">
+
       <button class="tab-btn active" onclick="filterProducts('all', this)">الكل</button>
+
       <button class="tab-btn" onclick="filterProducts('skincare', this)">العناية بالبشرة</button>
+
       <button class="tab-btn" onclick="filterProducts('haircare', this)">العناية بالشعر</button>
+
     </div>
+
+
 
     <div class="products-grid">
 
+
+
       <div class="product-card" data-category="skincare">
+
         <span class="badge">خصم 23%</span>
+
         <img src="evatar.jpg" alt="Evatar Cream">
+
         <h3 class="product-title">Evatar Cream</h3>
+
         <div class="rating-stars">★★★★★ <span>(4.9)</span></div>
-        <div class="price-container">
-          <span class="current-price">88 ج.م</span>
-          <span class="old-price">115 ج.م</span>
+
+        <div class="product-price">88 ج.م <span>115 ج.م</span></div>
+
+        <div class="card-buttons">
+
+          <a href="evatar.html" class="btn-details">اطلب الآن / التفاصيل</a>
+
+          <button class="btn-add-cart" onclick="addToCart('Evatar Cream', 88, 'evatar.jpg')">🛒 إضافة للسلة</button>
+
         </div>
-        <div class="card-actions">
-          <a href="evatar.html" class="details-link">اطلب الآن / التفاصيل</a>
-          <button class="add-cart-btn" onclick="addToCart('Evatar Cream', 88, 'evatar.jpg')">إضافة للسلة</button>
-        </div>
+
       </div>
 
+
+
       <div class="product-card" data-category="skincare">
+
         <span class="badge">خصم 22%</span>
+
         <img src="revasure.jpg" alt="Revasure Skin Cleanser">
+
         <h3 class="product-title">Revasure Skin Cleanser</h3>
+
         <div class="rating-stars">★★★★★ <span>(4.8)</span></div>
-        <div class="price-container">
-          <span class="current-price">195 ج.م</span>
-          <span class="old-price">250 ج.م</span>
+
+        <div class="product-price">195 ج.م <span>250 ج.م</span></div>
+
+        <div class="card-buttons">
+
+          <a href="revasure.html" class="btn-details">اطلب الآن / التفاصيل</a>
+
+          <button class="btn-add-cart" onclick="addToCart('Revasure Skin Cleanser', 195, 'revasure.jpg')">🛒 إضافة للسلة</button>
+
         </div>
-        <div class="card-actions">
-          <a href="revasure.html" class="details-link">اطلب الآن / التفاصيل</a>
-          <button class="add-cart-btn" onclick="addToCart('Revasure Skin Cleanser', 195, 'revasure.jpg')">إضافة للسلة</button>
-        </div>
+
       </div>
 
+
+
       <div class="product-card" data-category="skincare">
+
         <span class="badge">خصم 23%</span>
+
         <img src="jonacare.jpg" alt="Jonacare Cream SPF30">
+
         <h3 class="product-title">Jonacare Cream SPF30</h3>
+
         <div class="rating-stars">★★★★★ <span>(5.0)</span></div>
-        <div class="price-container">
-          <span class="current-price">185 ج.م</span>
-          <span class="old-price">240 ج.م</span>
+
+        <div class="product-price">185 ج.م <span>240 ج.م</span></div>
+
+        <div class="card-buttons">
+
+          <a href="jonacare.html" class="btn-details">اطلب الآن / التفاصيل</a>
+
+          <button class="btn-add-cart" onclick="addToCart('Jonacare Cream SPF30', 185, 'jonacare.jpg')">🛒 إضافة للسلة</button>
+
         </div>
-        <div class="card-actions">
-          <a href="jonacare.html" class="details-link">اطلب الآن / التفاصيل</a>
-          <button class="add-cart-btn" onclick="addToCart('Jonacare Cream SPF30', 185, 'jonacare.jpg')">إضافة للسلة</button>
-        </div>
+
       </div>
 
+
+
       <div class="product-card" data-category="haircare">
+
         <span class="badge">خصم 22%</span>
+
         <img src="hairytec-tonic.jpg" alt="Hairytec Hair Tonic Lotion">
+
         <h3 class="product-title">Hairytec Hair Tonic Lotion</h3>
+
         <div class="rating-stars">★★★★★ <span>(4.9)</span></div>
-        <div class="price-container">
-          <span class="current-price">225 ج.م</span>
-          <span class="old-price">290 ج.م</span>
+
+        <div class="product-price">225 ج.م <span>290 ج.م</span></div>
+
+        <div class="card-buttons">
+
+          <a href="hairytec-tonic.html" class="btn-details">اطلب الآن / التفاصيل</a>
+
+          <button class="btn-add-cart" onclick="addToCart('Hairytec Hair Tonic Lotion', 225, 'hairytec-tonic.jpg')">🛒 إضافة للسلة</button>
+
         </div>
-        <div class="card-actions">
-          <a href="hairytec-tonic.html" class="details-link">اطلب الآن / التفاصيل</a>
-          <button class="add-cart-btn" onclick="addToCart('Hairytec Hair Tonic Lotion', 225, 'hairytec-tonic.jpg')">إضافة للسلة</button>
-        </div>
+
       </div>
 
+
+
       <div class="product-card" data-category="haircare">
+
         <span class="badge">خصم 21%</span>
+
         <img src="hairytec-dandruff.jpg" alt="Hairytec Anti-Dandruff Shampoo">
+
         <h3 class="product-title">Hairytec Anti-Dandruff Shampoo</h3>
+
         <div class="rating-stars">★★★★★ <span>(4.7)</span></div>
-        <div class="price-container">
-          <span class="current-price">180 ج.م</span>
-          <span class="old-price">230 ج.م</span>
+
+        <div class="product-price">180 ج.م <span>230 ج.م</span></div>
+
+        <div class="card-buttons">
+
+          <a href="hairytec-dandruff.html" class="btn-details">اطلب الآن / التفاصيل</a>
+
+          <button class="btn-add-cart" onclick="addToCart('Hairytec Anti-Dandruff Shampoo', 180, 'hairytec-dandruff.jpg')">🛒 إضافة للسلة</button>
+
         </div>
-        <div class="card-actions">
-          <a href="hairytec-dandruff.html" class="details-link">اطلب الآن / التفاصيل</a>
-          <button class="add-cart-btn" onclick="addToCart('Hairytec Anti-Dandruff Shampoo', 180, 'hairytec-dandruff.jpg')">إضافة للسلة</button>
-        </div>
+
       </div>
 
+
+
       <div class="product-card" data-category="haircare">
+
         <span class="badge">خصم 23%</span>
+
         <img src="hairytec-hairloss.jpg" alt="Hairytec Anti-Hairloss Shampoo">
+
         <h3 class="product-title">Hairytec Anti-Hairloss Shampoo</h3>
+
         <div class="rating-stars">★★★★★ <span>(4.8)</span></div>
-        <div class="price-container">
-          <span class="current-price">185 ج.م</span>
-          <span class="old-price">240 ج.م</span>
+
+        <div class="product-price">185 ج.م <span>240 ج.م</span></div>
+
+        <div class="card-buttons">
+
+          <a href="hairytec-hairloss.html" class="btn-details">اطلب الآن / التفاصيل</a>
+
+          <button class="btn-add-cart" onclick="addToCart('Hairytec Anti-Hairloss Shampoo', 185, 'hairytec-hairloss.jpg')">🛒 إضافة للسلة</button>
+
         </div>
-        <div class="card-actions">
-          <a href="hairytec-hairloss.html" class="details-link">اطلب الآن / التفاصيل</a>
-          <button class="add-cart-btn" onclick="addToCart('Hairytec Anti-Hairloss Shampoo', 185, 'hairytec-hairloss.jpg')">إضافة للسلة</button>
-        </div>
+
       </div>
 
+
+
       <div class="product-card" data-category="skincare">
+
         <span class="badge">خصم 22%</span>
+
         <img src="vetasure.jpg" alt="Vetasure">
+
         <h3 class="product-title">Vetasure</h3>
+
         <div class="rating-stars">★★★★★ <span>(4.9)</span></div>
-        <div class="price-container">
-          <span class="current-price">125 ج.م</span>
-          <span class="old-price">160 ج.م</span>
+
+        <div class="product-price">125 ج.م <span>160 ج.م</span></div>
+
+        <div class="card-buttons">
+
+          <a href="vetasure.html" class="btn-details">اطلب الآن / التفاصيل</a>
+
+          <button class="btn-add-cart" onclick="addToCart('Vetasure', 125, 'vetasure.jpg')">🛒 إضافة للسلة</button>
+
         </div>
-        <div class="card-actions">
-          <a href="vetasure.html" class="details-link">اطلب الآن / التفاصيل</a>
-          <button class="add-cart-btn" onclick="addToCart('Vetasure', 125, 'vetasure.jpg')">إضافة للسلة</button>
-        </div>
+
       </div>
+
+
 
       <div class="product-card" data-category="skincare">
+
         <span class="badge">خصم 25%</span>
+
         <img src="evatae.jpg" alt="Evatae Intimate Feminine Wash">
+
         <h3 class="product-title">Evatae Intimate Feminine Wash</h3>
+
         <div class="rating-stars">★★★★★ <span>(5.0)</span></div>
-        <div class="price-container">
-          <span class="current-price">75 ج.م</span>
-          <span class="old-price">100 ج.م</span>
+
+        <div class="product-price">75 ج.م <span>100 ج.م</span></div>
+
+        <div class="card-buttons">
+
+          <a href="evatae.html" class="btn-details">اطلب الآن / التفاصيل</a>
+
+          <button class="btn-add-cart" onclick="addToCart('Evatae Intimate Feminine Wash', 75, 'evatae.jpg')">🛒 إضافة للسلة</button>
+
         </div>
-        <div class="card-actions">
-          <a href="evatae.html" class="details-link">اطلب الآن / التفاصيل</a>
-          <button class="add-cart-btn" onclick="addToCart('Evatae Intimate Feminine Wash', 75, 'evatae.jpg')">إضافة للسلة</button>
-        </div>
+
       </div>
 
+
+
       <div class="product-card" data-category="haircare">
+
         <span class="badge">خصم 23%</span>
+
         <img src="regton.jpg" alt="Regton">
+
         <h3 class="product-title">Regton</h3>
+
         <div class="rating-stars">★★★★★ <span>(4.8)</span></div>
-        <div class="price-container">
-          <span class="current-price">135 ج.م</span>
-          <span class="old-price">175 ج.م</span>
+
+        <div class="product-price">135 ج.م <span>175 ج.م</span></div>
+
+        <div class="card-buttons">
+
+          <a href="regton.html" class="btn-details">اطلب الآن / التفاصيل</a>
+
+          <button class="btn-add-cart" onclick="addToCart('Regton', 135, 'regton.jpg')">🛒 إضافة للسلة</button>
+
         </div>
-        <div class="card-actions">
-          <a href="regton.html" class="details-link">اطلب الآن / التفاصيل</a>
-          <button class="add-cart-btn" onclick="addToCart('Regton', 135, 'regton.jpg')">إضافة للسلة</button>
-        </div>
+
       </div>
+
+
 
       <div class="product-card" data-category="haircare">
+
         <span class="badge">خصم 21%</span>
+
         <img src="altibro.jpg" alt="Altibro Hair Serum">
+
         <h3 class="product-title">Altibro Hair Serum</h3>
+
         <div class="rating-stars">★★★★★ <span>(4.9)</span></div>
-        <div class="price-container">
-          <span class="current-price">220 ج.م</span>
-          <span class="old-price">280 ج.م</span>
+
+        <div class="product-price">220 ج.م <span>280 ج.م</span></div>
+
+        <div class="card-buttons">
+
+          <a href="altibro.html" class="btn-details">اطلب الآن / التفاصيل</a>
+
+          <button class="btn-add-cart" onclick="addToCart('Altibro Hair Serum', 220, 'altibro.jpg')">🛒 إضافة للسلة</button>
+
         </div>
-        <div class="card-actions">
-          <a href="altibro.html" class="details-link">اطلب الآن / التفاصيل</a>
-          <button class="add-cart-btn" onclick="addToCart('Altibro Hair Serum', 220, 'altibro.jpg')">إضافة للسلة</button>
-        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+
+    <!-- قسم المراجعات المتغير والمخصص -->
+
+    <div class="reviews-section">
+
+      <h2 class="section-title">آراء عميلاتنا ✨</h2>
+
+      <div class="reviews-grid" id="reviewsGrid">
+
+        <!-- يتم تحميل المراجعات المخصصة عبر الكود -->
+
       </div>
 
     </div>
 
-    <section class="product-reviews-container">
-      <div class="reviews-header">
-        <h3>آراء وتجارب العميلات</h3>
-        <div class="reviews-summary">تقييمات حقيقية من مشتريات مؤكدات</div>
-      </div>
-      <div class="product-reviews-list" id="reviewsGrid">
-        </div>
-    </section>
 
-  </main>
 
-  <div id="cartOverlay" class="cart-overlay"></div>
-  <div id="cartDrawer" class="cart-drawer">
-    <div class="cart-header">
-      <h3 id="drawerTitle">سلة التسوق</h3>
-      <button id="closeCartBtn" class="close-btn">&times;</button>
-    </div>
-
-    <div id="cartItems" class="cart-items">
-      <p class="empty-cart-msg">السلة فارغة حالياً</p>
-    </div>
-
-    <div id="checkoutForm" class="checkout-form-container">
-      <button class="back-btn" onclick="showCartView()">← العودة للسلة</button>
-      <div class="form-group">
-        <label for="custName">الاسم بالكامل *</label>
-        <input type="text" id="custName" placeholder="أدخلي اسمك هنا" required>
-      </div>
-      <div class="form-group">
-        <label for="custPhone">رقم الهاتف (الواتساب) *</label>
-        <input type="tel" id="custPhone" placeholder="01xxxxxxxxx" required>
-      </div>
-      <div class="form-group">
-        <label for="custAddress">العنوان التفصيلي *</label>
-        <textarea id="custAddress" rows="3" placeholder="المحافظة، المدينة، اسم الشارع، رقم العقار" required></textarea>
-      </div>
-      <button class="checkout-btn" onclick="sendOrderToWhatsApp()" style="margin-top: 15px;">إتمام الطلب عبر واتساب</button>
-    </div>
-
-    <div class="cart-footer" id="cartFooter">
-      <div class="cart-total">
-        <span>الإجمالي:</span>
-        <span id="cartTotalPrice">0 ج.م</span>
-      </div>
-      <button class="checkout-btn" onclick="showCheckoutView()">متابعة الشراء</button>
-    </div>
   </div>
 
+
+
+  <!-- Cart Drawer Panel -->
+
+  <div id="cartOverlay" class="cart-overlay"></div>
+
+  <div id="cartDrawer" class="cart-drawer">
+
+    <div class="cart-header">
+
+      <h3 id="drawerTitle">سلة التسوق 🛒</h3>
+
+      <button id="closeCartBtn" class="close-btn">&times;</button>
+
+    </div>
+
+
+
+    <!-- قائمة المنتجات -->
+
+    <div id="cartItems" class="cart-items">
+
+      <p class="empty-cart-msg">السلة فارغة حالياً</p>
+
+    </div>
+
+
+
+    <!-- نموذج بيانات العميلة -->
+
+    <div id="checkoutForm" class="checkout-form-container">
+
+      <button class="back-btn" onclick="showCartView()">← العودة للسلة</button>
+
+      <div class="form-group">
+
+        <label for="custName">الاسم بالكامل *</label>
+
+        <input type="text" id="custName" placeholder="أدخلي اسمك هنا" required>
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="custPhone">رقم الهاتف (الواتساب) *</label>
+
+        <input type="tel" id="custPhone" placeholder="01xxxxxxxxx" required>
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="custAddress">العنوان التفصيلي *</label>
+
+        <textarea id="custAddress" rows="3" placeholder="المحافظة، المدينة، اسم الشارع، رقم العقار" required></textarea>
+
+      </div>
+
+      <button class="whatsapp-btn" onclick="sendOrderToWhatsApp()">💬 إتمام الطلب عبر واتساب</button>
+
+    </div>
+
+
+
+    <div class="cart-footer" id="cartFooter">
+
+      <div class="cart-total">
+
+        <span>الإجمالي:</span>
+
+        <span id="cartTotalPrice">0 ج.م</span>
+
+      </div>
+
+      <button class="checkout-btn" onclick="showCheckoutView()">متابعة الشراء</button>
+
+    </div>
+
+  </div>
+
+
+
   <script>
+
     const MY_WHATSAPP_NUMBER = "201000000000"; 
 
+
+
+    // قاعدة بيانات المراجعات المخصصة والمطابقة لكل منتج بشكل دقيق
+
     const productReviews = [
+
       {
+
         product: "Hairytec Anti-Hairloss Shampoo",
+
         author: "داليا جلال",
+
         rating: 5,
+
         text: "الشامبو ممتاز جداً لمنع التساقط! لاحظت من أول أسبوعين إن التساقط قل كتير وشعري بقى أقوى."
+
       },
+
       {
+
         product: "Hairytec Anti-Dandruff Shampoo",
+
         author: "ميادة أحمد",
+
         rating: 5,
+
         text: "خلصني من القشرة تماماً والحكة خفت من أول استخدام، وكمان مش بينشف الشعر زي باقي أنواع شامبو القشرة."
+
       },
+
       {
+
         product: "Evatar Cream",
+
         author: "سارة محمود",
+
         rating: 5,
+
         text: "كريم الترطيب بتاعه خطير، ملمسه خفيف جداً على البشرة والترطيب بيفضل مستمر طوال اليوم."
+
       },
+
       {
+
         product: "Altibro Hair Serum",
+
         author: "نوران القاضي",
+
         rating: 5,
+
         text: "السيروم بيدي لمعة تحفة للشعر وبيقلل الهيشان جداً، ومش بيدهن خالص."
+
       },
+
       {
+
         product: "Revasure Skin Cleanser",
+
         author: "مريم علي",
+
         rating: 5,
+
         text: "غسول بطل للبشرة الدهنية، بينظف مسام البشرة بعمق ومن غير ما يسبب أي جفاف."
+
       },
+
       {
+
         product: "Jonacare Cream SPF30",
+
         author: "أسماء هاني",
+
         rating: 5,
+
         text: "واقي شمس ممتاز، مش بيترك أي طبقة بيضا وبيحمي البشرة جداً في المصيف والحر."
+
       }
+
     ];
 
+
+
     function renderReviews() {
+
       const grid = document.getElementById('reviewsGrid');
+
+      // اختيار 3 مراجعات متنوعة وعرضها
+
       const selectedReviews = productReviews.slice(0, 3);
+
       grid.innerHTML = selectedReviews.map(rev => `
-        <div class="product-review-card">
-          <div class="review-card-top">
-            <div class="reviewer-name">
-              ${rev.author}
-              <span class="verified-badge">مشتري مؤكد</span>
-            </div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-          <div class="review-comment">"${rev.text}"</div>
-          <div class="review-date">عن منتج: ${rev.product}</div>
+
+        <div class="review-card">
+
+          <div class="rating-stars">★★★★★</div>
+
+          <div class="review-author">${rev.author}</div>
+
+          <div class="review-product-tag">عن منتج: ${rev.product}</div>
+
+          <p class="review-text">"${rev.text}"</p>
+
         </div>
+
       `).join('');
+
     }
+
+
 
     function filterProducts(category, element) {
+
       const tabs = document.querySelectorAll('.tab-btn');
+
       tabs.forEach(tab => tab.classList.remove('active'));
+
       element.classList.add('active');
 
+
+
       const cards = document.querySelectorAll('.product-card');
+
       cards.forEach(card => {
+
         if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
+
+          card.classList.remove('hidden');
+
         } else {
-          card.style.display = 'none';
+
+          card.classList.add('hidden');
+
         }
+
       });
+
     }
+
+
 
     function addToCart(title, price, image) {
+
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
       let existingIndex = cart.findIndex(item => item.title === title);
 
+
+
       if (existingIndex > -1) {
+
         cart[existingIndex].quantity += 1;
+
       } else {
+
         cart.push({ title: title, price: price, image: image, quantity: 1 });
+
       }
 
+
+
       localStorage.setItem('cart', JSON.stringify(cart));
+
       renderCart();
+
       showCartView();
+
       openCart();
+
     }
+
+
 
     function changeQuantity(index, delta) {
+
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
       if (cart[index]) {
+
         cart[index].quantity += delta;
+
         if (cart[index].quantity <= 0) {
+
           cart.splice(index, 1);
+
         }
+
       }
+
       localStorage.setItem('cart', JSON.stringify(cart));
+
       renderCart();
+
     }
 
+
+
     function removeFromCart(index) {
-      let cart = JSON
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      cart.splice(index, 1);
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      renderCart();
+
+    }
+
+
+
+    function renderCart() {
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const cartItemsContainer = document.getElementById('cartItems');
+
+      const cartCount = document.getElementById('cartCount');
+
+      const cartTotalPrice = document.getElementById('cartTotalPrice');
+
+
+
+      const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+
+
+
+      cartCount.textContent = totalItems;
+
+      cartTotalPrice.textContent = totalPrice + ' ج.م';
+
+
+
+      if (cart.length === 0) {
+
+        cartItemsContainer.innerHTML = '<p class="empty-cart-msg">السلة فارغة حالياً</p>';
+
+        return;
+
+      }
+
+
+
+      cartItemsContainer.innerHTML = cart.map((item, index) => `
+
+        <div class="cart-item-row">
+
+          <div class="cart-item-info">
+
+            <img src="${item.image}" alt="${item.title}">
+
+            <div>
+
+              <div class="cart-item-title">${item.title}</div>
+
+              <div class="cart-item-price">${item.price} ج.م</div>
+
+            </div>
+
+          </div>
+
+          <div class="cart-controls">
+
+            <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
+
+            <span>${item.quantity}</span>
+
+            <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
+
+            <button class="remove-btn" onclick="removeFromCart(${index})">🗑️</button>
+
+          </div>
+
+        </div>
+
+      `).join('');
+
+    }
+
+
+
+    function showCheckoutView() {
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      if (cart.length === 0) {
+
+        alert("السلة فارغة، يرجى إضافة منتجات أولاً!");
+
+        return;
+
+      }
+
+      document.getElementById('cartItems').style.display = 'none';
+
+      document.getElementById('cartFooter').style.display = 'none';
+
+      document.getElementById('checkoutForm').classList.add('active');
+
+      document.getElementById('drawerTitle').textContent = 'بيانات الشحن 🚚';
+
+    }
+
+
+
+    function showCartView() {
+
+      document.getElementById('cartItems').style.display = 'block';
+
+      document.getElementById('cartFooter').style.display = 'block';
+
+      document.getElementById('checkoutForm').classList.remove('active');
+
+      document.getElementById('drawerTitle').textContent = 'سلة التسوق 🛒';
+
+    }
+
+
+
+    function sendOrderToWhatsApp() {
+
+      const name = document.getElementById('custName').value.trim();
+
+      const phone = document.getElementById('custPhone').value.trim();
+
+      const address = document.getElementById('custAddress').value.trim();
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+
+      if (!name || !phone || !address) {
+
+        alert("يرجى ملء جميع البيانات للتمكن من إرسال الطلب!");
+
+        return;
+
+      }
+
+
+
+      let message = `مرحباً Auravale Cosmetics ✨\nأود إتمام طلب جديد:\n\n`;
+
+      message += `👤 *الاسم:* ${name}\n`;
+
+      message += `📞 *رقم الهاتف:* ${phone}\n`;
+
+      message += `📍 *العنوان:* ${address}\n\n`;
+
+      message += `🛍️ *تفاصيل الطلب:*\n`;
+
+
+
+      let total = 0;
+
+      cart.forEach((item, index) => {
+
+        const itemTotal = item.price * item.quantity;
+
+        total += itemTotal;
+
+        message += `${index + 1}. ${item.title} (x${item.quantity}) - ${itemTotal} ج.م\n`;
+
+      });
+
+
+
+      message += `\n💰 *الإجمالي النهائي:* ${total} ج.م`;
+
+
+
+      const encodedMessage = encodeURIComponent(message);
+
+      const whatsappURL = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+
+
+      window.open(whatsappURL, '_blank');
+
+    }
+
+
+
+    const cartBtn = document.getElementById('cartBtn');
+
+    const closeCartBtn = document.getElementById('closeCartBtn');
+
+    const cartDrawer = document.getElementById('cartDrawer');
+
+    const cartOverlay = document.getElementById('cartOverlay');
+
+
+
+    function openCart() {
+
+      cartDrawer.classList.add('open');
+
+      cartOverlay.classList.add('open');
+
+    }
+
+
+
+    function closeCart() {
+
+      cartDrawer.classList.remove('open');
+
+      cartOverlay.classList.remove('open');
+
+      showCartView();
+
+    }
+
+
+
+    if (cartBtn) cartBtn.addEventListener('click', openCart);
+
+    if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
+
+    if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+
+
+
+    // تشغيل القوائم المبدئية
+
+    renderCart();
+
+    renderReviews();
+
+  </script>
+
+</body>
+
+</html> 
+
+
