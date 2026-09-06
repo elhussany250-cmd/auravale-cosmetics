@@ -579,6 +579,148 @@ cartOverlay.addEventListener('click', closeCart);
     <button class="checkout-btn">متابعة الشراء</button>
   </div>
 </div>
+  <!-- 1. هيكل نافذة السلة الجانبية -->
+<div id="cartOverlay" class="cart-overlay"></div>
+<div id="cartDrawer" class="cart-drawer">
+  <div class="cart-header">
+    <h3>سلة التسوق 🛒</h3>
+    <button id="closeCartBtn" class="close-btn">&times;</button>
+  </div>
+
+  <div id="cartItems" class="cart-items">
+    <p class="empty-cart-msg">السلة فارغة حالياً</p>
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>الإجمالي:</span>
+      <span id="cartTotalPrice">0 ج.م</span>
+    </div>
+    <button class="checkout-btn">متابعة الشراء</button>
+  </div>
+</div>
+
+<!-- 2. تنسيق الـ CSS الخاص بالتصميم والزرار المدوّر -->
+<style>
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 9998;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 350px;
+  max-width: 85%;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+  transition: right 0.3s ease-in-out;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.cart-overlay.open {
+  display: block;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.close-btn {
+  background: #f0f0f0;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* زرار X المدوّر */
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  background: #e0e0e0;
+}
+
+.cart-items {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.empty-cart-msg {
+  text-align: center;
+  color: #888;
+  margin-top: 40px;
+}
+
+.cart-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+</style>
+
+<!-- 3. كود الفتح والإغلاق بالـ JS -->
+<script>
+  const cartBtn = document.getElementById('cartBtn');
+  const closeCartBtn = document.getElementById('closeCartBtn');
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartOverlay = document.getElementById('cartOverlay');
+
+  function openCart() {
+    cartDrawer.classList.add('open');
+    cartOverlay.classList.add('open');
+  }
+
+  function closeCart() {
+    cartDrawer.classList.remove('open');
+    cartOverlay.classList.remove('open');
+  }
+
+  if (cartBtn) cartBtn.addEventListener('click', openCart);
+  if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
+  if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+</script>
 </body>
 </html>
 
