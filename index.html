@@ -481,6 +481,74 @@
     .checkout-btn:hover {
       background: var(--dark-hover);
     }
+
+    /* Checkout Form Styles */
+    .checkout-form-container {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      padding: 15px;
+    }
+
+    .checkout-form-container.active {
+      display: flex;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: right;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-group input, .form-group textarea {
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--primary-gold);
+    }
+
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebc57;
+    }
+
+    .back-btn {
+      background: transparent;
+      border: none;
+      color: #666;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: underline;
+      align-self: flex-start;
+    }
   </style>
 </head>
 <body>
@@ -663,24 +731,46 @@
   <div id="cartOverlay" class="cart-overlay"></div>
   <div id="cartDrawer" class="cart-drawer">
     <div class="cart-header">
-      <h3>سلة التسوق 🛒</h3>
+      <h3 id="drawerTitle">سلة التسوق 🛒</h3>
       <button id="closeCartBtn" class="close-btn">&times;</button>
     </div>
 
+    <!-- قائمة المنتجات -->
     <div id="cartItems" class="cart-items">
       <p class="empty-cart-msg">السلة فارغة حالياً</p>
     </div>
 
-    <div class="cart-footer">
+    <!-- نموذج بيانات العميلة -->
+    <div id="checkoutForm" class="checkout-form-container">
+      <button class="back-btn" onclick="showCartView()">← العودة للسلة</button>
+      <div class="form-group">
+        <label for="custName">الاسم بالكامل *</label>
+        <input type="text" id="custName" placeholder="أدخلي اسمك هنا" required>
+      </div>
+      <div class="form-group">
+        <label for="custPhone">رقم الهاتف (الواتساب) *</label>
+        <input type="tel" id="custPhone" placeholder="01xxxxxxxxx" required>
+      </div>
+      <div class="form-group">
+        <label for="custAddress">العنوان التفصيلي *</label>
+        <textarea id="custAddress" rows="3" placeholder="المحافظة، المدينة، اسم الشارع، رقم العقار" required></textarea>
+      </div>
+      <button class="whatsapp-btn" onclick="sendOrderToWhatsApp()">💬 إتمام الطلب عبر واتساب</button>
+    </div>
+
+    <div class="cart-footer" id="cartFooter">
       <div class="cart-total">
         <span>الإجمالي:</span>
         <span id="cartTotalPrice">0 ج.م</span>
       </div>
-      <button class="checkout-btn">متابعة الشراء</button>
+      <button class="checkout-btn" onclick="showCheckoutView()">متابعة الشراء</button>
     </div>
   </div>
 
   <script>
+    // ⚠️ استبدل الرقم ده برقم الواتساب الخاص بمتجرك (بدون علامة + وبدايته كود الدولة، مثلاً 20 لمصر)
+    const MY_WHATSAPP_NUMBER = "201000000000"; 
+
     function filterProducts(category, element) {
       const tabs = document.querySelectorAll('.tab-btn');
       tabs.forEach(tab => tab.classList.remove('active'));
@@ -708,6 +798,7 @@
 
       localStorage.setItem('cart', JSON.stringify(cart));
       renderCart();
+      showCartView();
       openCart();
     }
 
@@ -766,6 +857,58 @@
       `).join('');
     }
 
+    function showCheckoutView() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (cart.length === 0) {
+        alert("السلة فارغة، يرجى إضافة منتجات أولاً!");
+        return;
+      }
+      document.getElementById('cartItems').style.display = 'none';
+      document.getElementById('cartFooter').style.display = 'none';
+      document.getElementById('checkoutForm').classList.add('active');
+      document.getElementById('drawerTitle').textContent = 'بيانات الشحن 🚚';
+    }
+
+    function showCartView() {
+      document.getElementById('cartItems').style.display = 'block';
+      document.getElementById('cartFooter').style.display = 'block';
+      document.getElementById('checkoutForm').classList.remove('active');
+      document.getElementById('drawerTitle').textContent = 'سلة التسوق 🛒';
+    }
+
+    function sendOrderToWhatsApp() {
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      if (!name || !phone || !address) {
+        alert("يرجى ملء جميع البيانات للتمكن من إرسال الطلب!");
+        return;
+      }
+
+      let message = `مرحباً Auravale Cosmetics ✨\nأود إتمام طلب جديد:\n\n`;
+      message += `👤 *الاسم:* ${name}\n`;
+      message += `📞 *رقم الهاتف:* ${phone}\n`;
+      message += `📍 *العنوان:* ${address}\n\n`;
+      message += `🛍️ *تفاصيل الطلب:*\n`;
+
+      let total = 0;
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        message += `${index + 1}. ${item.title} (x${item.quantity}) - ${itemTotal} ج.م\n`;
+      });
+
+      message += `\n💰 *الإجمالي النهائي:* ${total} ج.م`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+      // فتح الواتساب في نافذة جديدة
+      window.open(whatsappURL, '_blank');
+    }
+
     const cartBtn = document.getElementById('cartBtn');
     const closeCartBtn = document.getElementById('closeCartBtn');
     const cartDrawer = document.getElementById('cartDrawer');
@@ -779,13 +922,13 @@
     function closeCart() {
       cartDrawer.classList.remove('open');
       cartOverlay.classList.remove('open');
+      showCartView(); // إعادة السلة لوضعها الطبيعي عند الإغلاق
     }
 
     if (cartBtn) cartBtn.addEventListener('click', openCart);
     if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
     if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
 
-    // Render cart on page load
     renderCart();
   </script>
 </body>
