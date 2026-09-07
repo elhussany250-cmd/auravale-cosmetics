@@ -4,323 +4,201 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>عرض Shampoo وLotion روين الشعر - Auravale Cosmetics</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=500">
   <style>
-    :root {
-      --primary-gold: #b59410;
-      --primary-hover: #967a0d;
-      --bg-light: #faf8f5;
-      --dark-btn: #1a1a1a;
-      --dark-hover: #333333;
+    .product-reviews-container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-light);
-      color: #333;
-      padding-bottom: 50px;
-    }
-
-    .announcement-bar {
-      background: var(--primary-gold);
-      color: #ffffff;
+    .reviews-header {
+      margin-bottom: 20px;
       text-align: center;
-      padding: 6px 10px;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 0.3px;
     }
-
-    .header {
-      background: #ffffff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 10px 12px;
+    .reviews-header h3 {
+      color: #b59410;
+      margin-bottom: 5px;
     }
-
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    .reviews-summary {
+      font-size: 13px;
+      color: #666;
+    }
+    .product-reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .product-review-card {
+      background: #faf8f5;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #f0e6d2;
+    }
+    .review-card-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 8px;
     }
-
-    .brand-logo {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--primary-gold);
-      text-decoration: none;
-    }
-
-    .back-home {
-      font-size: 12px;
-      color: #666;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    .back-home:hover {
-      color: var(--primary-gold);
-    }
-
-    .product-container {
-      max-width: 900px;
-      margin: 25px auto;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      border: 1px solid #f0eada;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    @media (min-width: 768px) {
-      .product-container {
-        grid-template-columns: 1fr 1fr;
-        padding: 30px;
-        align-items: center;
-      }
-    }
-
-    .product-image-box img {
-      width: 100%;
-      height: auto;
-      max-height: 380px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    .product-details-box {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .product-title {
-      font-size: 20px;
-      font-weight: bold;
-      color: #222;
-      line-height: 1.4;
-    }
-
-    .rating-stars {
-      color: #f39c12;
-      font-size: 13px;
-    }
-
-    .rating-stars span {
-      color: #777;
-      font-size: 11px;
-      margin-right: 4px;
-    }
-
-    .product-price {
-      font-size: 18px;
-      font-weight: bold;
-      color: var(--primary-gold);
-    }
-
-    .product-price span {
-      text-decoration: line-through;
-      color: #aaa;
-      font-size: 13px;
-      margin-right: 8px;
-    }
-
-    .product-description {
-      font-size: 13px;
-      color: #555;
-      line-height: 1.6;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
-      padding: 10px 0;
-    }
-
-    .action-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .btn-add-cart {
-      width: 100%;
-      padding: 12px;
-      background: var(--dark-btn);
-      color: white;
-      border: none;
-      border-radius: 8px;
+    .reviewer-name {
       font-weight: bold;
       font-size: 14px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .btn-add-cart:hover {
-      background: var(--dark-hover);
-    }
-
-    /* Quick Order Form Box */
-    .quick-order-section {
-      max-width: 900px;
-      margin: 20px auto;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      border: 1px solid #f0eada;
-    }
-
-    .section-title {
-      font-size: 16px;
-      color: var(--primary-gold);
-      margin-bottom: 15px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    @media (min-width: 768px) {
-      .form-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      text-align: right;
-    }
-
-    .form-group.full-width {
-      grid-column: 1 / -1;
-    }
-
-    .form-group label {
-      font-size: 12px;
-      font-weight: bold;
       color: #333;
     }
-
-    .form-group input, .form-group textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+    .verified-badge {
+      font-size: 10px;
+      color: #27ae60;
+      background: #e8f8f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-right: 5px;
+    }
+    .review-stars {
+      color: #f39c12;
+      font-size: 12px;
+    }
+    .review-comment {
       font-size: 13px;
-      outline: none;
+      color: #555;
+      line-height: 1.5;
     }
-
-    .form-group input:focus, .form-group textarea:focus {
-      border-color: var(--primary-gold);
-    }
-
-    .whatsapp-btn {
-      background: #25D366;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 14px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      grid-column: 1 / -1;
-      margin-top: 5px;
-      transition: background 0.3s;
-    }
-
-    .whatsapp-btn:hover {
-      background: #1ebc57;
+    .review-date {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 6px;
     }
   </style>
 
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1062648226654073');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1062648226654073&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel Code -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+ n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1062648226654073');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1062648226654073&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
 </head>
 <body>
 
-  <div class="announcement-bar">
-    🚚 شحن مجاني للطلبات المميزة | خصومات حصريّة لفترة محدودة!
-  </div>
+  <nav class="navbar" style="background: #fff; padding: 15px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center;">
+    <a href="index.html" class="nav-brand" style="color: #b59410; text-decoration: none; font-weight: 800; font-size: 18px;">Auravale Cosmetics</a>
+    <a href="index.html" class="cart-btn-nav" style="text-decoration: none; background: #1a1a1a; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold;">🏠 الرئيسية</a>
+  </nav>
 
-  <header class="header">
-    <div class="header-container">
-      <a href="index.html" class="brand-logo">Auravale Cosmetics</a>
-      <a href="index.html" class="back-home">← العودة للرئيسية</a>
-    </div>
-  </header>
+  <main style="max-width: 1000px; margin: 30px auto; padding: 0 15px; box-sizing: border-box;">
+    <div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+      
+      <div style="flex: 1; min-width: 280px;">
+        <img src="shampoo-lotion.jpg" alt="عرض Shampoo وLotion روين الشعر" style="width: 100%; border-radius: 10px; object-fit: cover;">
+      </div>
 
-  <!-- تفاصيل المنتج الأساسية -->
-  <div class="product-container">
-    <div class="product-image-box">
-      <img src="auravale-glow-serum.jpg" alt="عرض Shampoo وLotion روين الشعر">
-    </div>
-    <div class="product-details-box">
-      <h1 class="product-title">عرض Shampoo وLotion روين الشعر</h1>
-      <div class="rating-stars">★★★★★ <span>(5.0 / تقييمات العملاء)</span></div>
-      <div class="product-price">400 ج.م <span>530 ج.م</span></div>
-      <div class="product-description">
-        مجموعة متكاملة للعناية المكثفة بالشعر، تجمع بين الشامبو المغذي واللوشن الفعال لتقوية البصيلات، محاربة التساقط، ومنح شعرك الحيوية واللمان الطبيعي. مصمم بعناية ليناسب جميع أنواع الشعر.
-      </div>
-      <div class="action-buttons">
-        <button class="btn-add-cart" onclick="addToCart('عرض Shampoo وLotion روين الشعر', 400, 'auravale-glow-serum.jpg')">🛒 إضافة للسلة</button>
-      </div>
-    </div>
-  </div>
+      <div style="flex: 1; min-width: 280px;">
+        <a href="index.html" style="color: #b59410; text-decoration: none; font-size: 14px; font-weight: bold; display: inline-block; margin-bottom: 10px;">← العودة للمتجر</a>
+        
+        <h2 style="margin: 0 0 10px 0; color: #333;">عرض Shampoo وLotion روين الشعر</h2>
+        <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 15px;">
+          مجموعة متكاملة للعناية المكثفة بالشعر، تجمع بين الشامبو المغذي واللوشن الفعال لتقوية البصيلات، محاربة التساقط، ومنح شعرك الحيوية واللمعان الطبيعي. مصمم بعناية ليناسب جميع أنواع الشعر.
+        </p>
 
-  <!-- نموذج الطلب السريع المباشر -->
-  <div class="quick-order-section">
-    <h2 class="section-title">طلب سريع عبر الواتساب ⚡</h2>
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="custName">الاسم بالكامل *</label>
-        <input type="text" id="custName" placeholder="أدخلي اسمك هنا" required>
+        <div style="margin-bottom: 20px;">
+          <span style="font-size: 22px; font-weight: bold; color: #b59410;">400 ج.م</span>
+          <span style="text-decoration: line-through; color: #aaa; margin-right: 10px; font-size: 16px;">530 ج.م</span>
+        </div>
+
+        <div style="background: #fdfbf7; border: 1px solid #f0e6d2; padding: 20px; border-radius: 10px;">
+          <h4 style="margin-top: 0; color: #b59410; margin-bottom: 15px; text-align: center;">أدخل بياناتك لإتمام الطلب مباشرة:</h4>
+          
+          <form onsubmit="sendProductOrder(event, 'عرض Shampoo وLotion روين الشعر', 400)">
+            <div style="margin-bottom: 10px;">
+              <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">الاسم بالكامل:</label>
+              <input type="text" id="p-name" required placeholder="أدخل اسمك الكريم" style="width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+            </div>
+
+            <div style="margin-bottom: 10px;">
+              <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">رقم الهاتف:</label>
+              <input type="tel" id="p-phone" required placeholder="رقم الموبايل للتواصل" style="width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+              <label style="display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px;">العنوان بالتفصيل:</label>
+              <textarea id="p-address" required rows="2" placeholder="المحافظة - المدينة - الشارع" style="width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; resize: none;"></textarea>
+            </div>
+
+            <button type="submit" style="width: 100%; padding: 12px; background: #b59410; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; margin-bottom: 8px; transition: 0.3s;" onmouseover="this.style.background='#967a0d'" onmouseout="this.style.background='#b59410'">
+              تأكيد الطلب عبر واتساب 🚀
+            </button>
+
+            <button type="button" onclick="addToCartAndGo('عرض Shampoo وLotion روين الشعر', 400, 'shampoo-lotion.jpg')" style="width: 100%; padding: 10px; background: #1a1a1a; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; margin-bottom: 8px;">
+              🛒 إضافة للسلة ومتابعة التسوق
+            </button>
+
+            <button type="button" onclick="chatWhatsApp('عرض Shampoo وLotion روين الشعر')" style="width: 100%; padding: 10px; background: #25d366; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer;">
+              تحدث معنا للاستفسار 💬
+            </button>
+          </form>
+        </div>
+
       </div>
-      <div class="form-group">
-        <label for="custPhone">رقم الهاتف (الواتساب) *</label>
-        <input type="tel" id="custPhone" placeholder="01xxxxxxxxx" required>
+    </div>
+  </main>
+
+  <!-- قسم المراجعات الخاص بالشامبو واللوشن -->
+  <div class="product-reviews-container">
+    <div class="reviews-header">
+      <h3>آراء وتجارب العميلات مع عرض روين الشعر ✨</h3>
+      <div class="reviews-summary">تقييم 4.9 من 5 بناءً على أحدث المراجعات</div>
+    </div>
+
+    <div class="product-reviews-list">
+      
+      <div class="product-review-card">
+        <div class="review-card-top">
+          <div class="reviewer-name">
+            سارة محمد
+            <span class="verified-badge">✓ مشتري مؤكد</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-comment">العرض ده أنقذ شعري من التساقط بجد! الشامبو بينظف كويس أوي ومش بيجفف الشعر، واللوشن فرق معايا في البيبي هير جداً.</div>
+        <div class="review-date">منذ يومين</div>
       </div>
-      <div class="form-group full-width">
-        <label for="custAddress">العنوان التفصيلي *</label>
-        <textarea id="custAddress" rows="3" placeholder="المحافظة، المدينة، اسم الشارع، رقم العقار" required></textarea>
+
+      <div class="product-review-card">
+        <div class="review-card-top">
+          <div class="reviewer-name">
+            نورهان أحمد
+            <span class="verified-badge">✓ مشتري مؤكد</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-comment">الريحة تحفة والنتيجة ظهرت معايا بعد أول أسبوعين استمرار، التساقط قل بنسبة كبيرة ولمعان الشعر رجع تاني.</div>
+        <div class="review-date">منذ 4 أيام</div>
       </div>
-      <button class="whatsapp-btn" onclick="sendDirectOrderToWhatsApp()">💬 تأكيد الطلب وإرساله عبر واتساب</button>
+
+      <div class="product-review-card">
+        <div class="review-card-top">
+          <div class="reviewer-name">
+            ياسمين عبد الله
+            <span class="verified-badge">✓ مشتري مؤكد</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-comment">أفضل مجموعة عناية بالشعر استخدمتها، والسعر في العرض ممتاز جداً بالنسبة للجودة والكمية. أنصح به بشدة!</div>
+        <div class="review-date">منذ أسبوع</div>
+      </div>
+
     </div>
   </div>
 
@@ -368,9 +246,44 @@
       beacon.src = ORDERS_API_URL + '?' + params.toString();
     }
 
-    const MY_WHATSAPP_NUMBER = "201106014523";
+    const PHONE_NUMBER = "201106014523";
 
-    function addToCart(title, price, image) {
+    function sendProductOrder(event, productName, price) {
+      event.preventDefault();
+      const name = document.getElementById('p-name').value.trim();
+      const phone = document.getElementById('p-phone').value.trim();
+      const address = document.getElementById('p-address').value.trim();
+
+      if (!name || !phone || !address) {
+        alert('يرجى ملء جميع البيانات للتمكن من إرسال الطلب!');
+        return;
+      }
+
+      const orderId = createOrderId();
+
+      let msg = `🛒 *طلب جديد عبر الموقع*\n`;
+      msg += `-------------------------\n`;
+      msg += `🆔 *رقم الطلب:* ${orderId}\n`;
+      msg += `📦 *المنتج:* ${productName}\n`;
+      msg += `💰 *السعر:* ${price} ج.م\n`;
+      msg += `-------------------------\n`;
+      msg += `👤 *الاسم:* ${name}\n`;
+      msg += `📞 *الهاتف:* ${phone}\n`;
+      msg += `🏠 *العنوان:* ${address}`;
+
+      logOrderToGoogleSheet({
+        orderId: orderId,
+        name: name,
+        phone: phone,
+        address: address,
+        product: productName,
+        value: price
+      });
+
+      window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function addToCartAndGo(title, price, image) {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       let existingIndex = cart.findIndex(item => item.title === title);
 
@@ -381,43 +294,13 @@
       }
 
       localStorage.setItem('cart', JSON.stringify(cart));
-      alert("تمت إضافة المنتج إلى السلة بنجاح! 🛒");
+      alert('تمت إضافة المنتج للسلة بنجاح!');
+      window.location.href = 'index.html';
     }
 
-    function sendDirectOrderToWhatsApp() {
-      const name = document.getElementById('custName').value.trim();
-      const phone = document.getElementById('custPhone').value.trim();
-      const address = document.getElementById('custAddress').value.trim();
-
-      if (!name || !phone || !address) {
-        alert("يرجى ملء جميع البيانات المطلوبة!");
-        return;
-      }
-
-      const orderId = createOrderId();
-      const productName = "عرض Shampoo وLotion روين الشعر";
-      const productPrice = 400;
-
-      let message = `مرحباً Auravale Cosmetics ✨\nأود طلب هذا المنتج:\n\n`;
-      message += `🆔 *رقم الطلب:* ${orderId}\n`;
-      message += `👤 *الاسم:* ${name}\n`;
-      message += `📞 *رقم الهاتف:* ${phone}\n`;
-      message += `📍 *العنوان:* ${address}\n\n`;
-      message += `🛍️ *المنتج:* ${productName} (x1)\n`;
-      message += `💰 *الإجمالي:* ${productPrice} ج.م`;
-
-      logOrderToGoogleSheet({
-        orderId: orderId,
-        name: name,
-        phone: phone,
-        address: address,
-        product: productName,
-        value: productPrice
-      });
-
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappURL = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodedMessage}`;
-      window.open(whatsappURL, '_blank');
+    function chatWhatsApp(productName) {
+      const msg = `مرحباً Auravale Cosmetics، أريد الاستفسار عن منتج: ${productName}`;
+      window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }
   </script>
 </body>
