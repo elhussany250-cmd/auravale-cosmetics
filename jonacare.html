@@ -71,6 +71,24 @@
       margin-top: 6px;
     }
   </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+ n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1062648226654073');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1062648226654073&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
 </head>
 <body>
 
@@ -185,22 +203,83 @@
   </div>
 
   <script>
+
+    const ORDERS_API_URL = "https://script.google.com/macros/s/AKfycbyWqQicfGGOROX6rVQg1HFWBBC1_qwdjdVaYZrzMyOEoD8HHh2f8lKMn7OWyV1loo_qGw/exec";
+
+    function getMetaTrackingData() {
+      const params = new URLSearchParams(window.location.search);
+      let fbclid = params.get('fbclid') || '';
+      let fbp = '';
+      let fbc = '';
+
+      const cookies = document.cookie.split(';').map(c => c.trim());
+      const fbpCookie = cookies.find(c => c.startsWith('_fbp='));
+      const fbcCookie = cookies.find(c => c.startsWith('_fbc='));
+      if (fbpCookie) fbp = decodeURIComponent(fbpCookie.substring(5));
+      if (fbcCookie) fbc = decodeURIComponent(fbcCookie.substring(5));
+
+      if (!fbc && fbclid) {
+        fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+      }
+
+      return { fbclid, fbp, fbc };
+    }
+
+    function createOrderId() {
+      return 'AV-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+    }
+
+    function logOrderToGoogleSheet(order) {
+      const tracking = getMetaTrackingData();
+      const params = new URLSearchParams({
+        order_id: order.orderId,
+        name: order.name || '',
+        phone: order.phone || '',
+        address: order.address || '',
+        product: order.product || '',
+        value: String(order.value || 0),
+        fbclid: tracking.fbclid,
+        fbp: tracking.fbp,
+        fbc: tracking.fbc
+      });
+
+      const beacon = new Image();
+      beacon.src = ORDERS_API_URL + '?' + params.toString();
+    }
+
     const PHONE_NUMBER = "201106014523";
 
     function sendProductOrder(event, productName, price) {
       event.preventDefault();
-      const name = document.getElementById('p-name').value;
-      const phone = document.getElementById('p-phone').value;
-      const address = document.getElementById('p-address').value;
+      const name = document.getElementById('p-name').value.trim();
+      const phone = document.getElementById('p-phone').value.trim();
+      const address = document.getElementById('p-address').value.trim();
+
+      if (!name || !phone || !address) {
+        alert('يرجى ملء جميع البيانات للتمكن من إرسال الطلب!');
+        return;
+      }
+
+      const orderId = createOrderId();
 
       let msg = `🛒 *طلب جديد عبر الموقع*\n`;
       msg += `-------------------------\n`;
+      msg += `🆔 *رقم الطلب:* ${orderId}\n`;
       msg += `📦 *المنتج:* ${productName}\n`;
       msg += `💰 *السعر:* ${price} ج.م\n`;
       msg += `-------------------------\n`;
       msg += `👤 *الاسم:* ${name}\n`;
       msg += `📞 *الهاتف:* ${phone}\n`;
       msg += `🏠 *العنوان:* ${address}`;
+
+      logOrderToGoogleSheet({
+        orderId: orderId,
+        name: name,
+        phone: phone,
+        address: address,
+        product: productName,
+        value: price
+      });
 
       window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }

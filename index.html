@@ -1114,11 +1114,12 @@
     }
 
   </style>
+
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+ n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
@@ -1128,9 +1129,9 @@ fbq('init', '1062648226654073');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1062648226654073&ev=PageView&noscript=1"
-/></noscript>
+src="https://www.facebook.com/tr?id=1062648226654073&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
+
 </head>
 
 <body>
@@ -1541,6 +1542,50 @@ src="https://www.facebook.com/tr?id=1062648226654073&ev=PageView&noscript=1"
 
   <script>
 
+
+    const ORDERS_API_URL = "https://script.google.com/macros/s/AKfycbyWqQicfGGOROX6rVQg1HFWBBC1_qwdjdVaYZrzMyOEoD8HHh2f8lKMn7OWyV1loo_qGw/exec";
+
+    function getMetaTrackingData() {
+      const params = new URLSearchParams(window.location.search);
+      let fbclid = params.get('fbclid') || '';
+      let fbp = '';
+      let fbc = '';
+
+      const cookies = document.cookie.split(';').map(c => c.trim());
+      const fbpCookie = cookies.find(c => c.startsWith('_fbp='));
+      const fbcCookie = cookies.find(c => c.startsWith('_fbc='));
+      if (fbpCookie) fbp = decodeURIComponent(fbpCookie.substring(5));
+      if (fbcCookie) fbc = decodeURIComponent(fbcCookie.substring(5));
+
+      if (!fbc && fbclid) {
+        fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+      }
+
+      return { fbclid, fbp, fbc };
+    }
+
+    function createOrderId() {
+      return 'AV-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+    }
+
+    function logOrderToGoogleSheet(order) {
+      const tracking = getMetaTrackingData();
+      const params = new URLSearchParams({
+        order_id: order.orderId,
+        name: order.name || '',
+        phone: order.phone || '',
+        address: order.address || '',
+        product: order.product || '',
+        value: String(order.value || 0),
+        fbclid: tracking.fbclid,
+        fbp: tracking.fbp,
+        fbc: tracking.fbc
+      });
+
+      const beacon = new Image();
+      beacon.src = ORDERS_API_URL + '?' + params.toString();
+    }
+
     const MY_WHATSAPP_NUMBER = "201000000000"; 
 
 
@@ -1864,65 +1909,52 @@ src="https://www.facebook.com/tr?id=1062648226654073&ev=PageView&noscript=1"
 
 
     function sendOrderToWhatsApp() {
-
       const name = document.getElementById('custName').value.trim();
-
       const phone = document.getElementById('custPhone').value.trim();
-
       const address = document.getElementById('custAddress').value.trim();
-
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-
-
       if (!name || !phone || !address) {
-
         alert("يرجى ملء جميع البيانات للتمكن من إرسال الطلب!");
-
         return;
-
       }
 
+      if (!cart.length) {
+        alert("السلة فارغة! أضف منتجاً أولاً.");
+        return;
+      }
 
-
+      const orderId = createOrderId();
       let message = `مرحباً Auravale Cosmetics ✨\nأود إتمام طلب جديد:\n\n`;
-
+      message += `🆔 *رقم الطلب:* ${orderId}\n`;
       message += `👤 *الاسم:* ${name}\n`;
-
       message += `📞 *رقم الهاتف:* ${phone}\n`;
-
       message += `📍 *العنوان:* ${address}\n\n`;
-
       message += `🛍️ *تفاصيل الطلب:*\n`;
 
-
-
       let total = 0;
-
+      const products = [];
       cart.forEach((item, index) => {
-
         const itemTotal = item.price * item.quantity;
-
         total += itemTotal;
-
+        products.push(`${item.title} x${item.quantity}`);
         message += `${index + 1}. ${item.title} (x${item.quantity}) - ${itemTotal} ج.م\n`;
-
       });
-
-
 
       message += `\n💰 *الإجمالي النهائي:* ${total} ج.م`;
 
-
+      logOrderToGoogleSheet({
+        orderId: orderId,
+        name: name,
+        phone: phone,
+        address: address,
+        product: products.join(' + '),
+        value: total
+      });
 
       const encodedMessage = encodeURIComponent(message);
-
       const whatsappURL = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodedMessage}`;
-
-
-
       window.open(whatsappURL, '_blank');
-
     }
 
 
