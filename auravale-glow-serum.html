@@ -1,54 +1,424 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيروم النضارة الفوري - Auravale Cosmetics</title>
-    <!-- ربط ملف التصميم الأساسي للموقع -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عرض Shampoo وLotion روين الشعر - Auravale Cosmetics</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --primary-gold: #b59410;
+      --primary-hover: #967a0d;
+      --bg-light: #faf8f5;
+      --dark-btn: #1a1a1a;
+      --dark-hover: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: #333;
+      padding-bottom: 50px;
+    }
+
+    .announcement-bar {
+      background: var(--primary-gold);
+      color: #ffffff;
+      text-align: center;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+    }
+
+    .header {
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 12px;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary-gold);
+      text-decoration: none;
+    }
+
+    .back-home {
+      font-size: 12px;
+      color: #666;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .back-home:hover {
+      color: var(--primary-gold);
+    }
+
+    .product-container {
+      max-width: 900px;
+      margin: 25px auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border: 1px solid #f0eada;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .product-container {
+        grid-template-columns: 1fr 1fr;
+        padding: 30px;
+        align-items: center;
+      }
+    }
+
+    .product-image-box img {
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .product-details-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+      line-height: 1.4;
+    }
+
+    .rating-stars {
+      color: #f39c12;
+      font-size: 13px;
+    }
+
+    .rating-stars span {
+      color: #777;
+      font-size: 11px;
+      margin-right: 4px;
+    }
+
+    .product-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--primary-gold);
+    }
+
+    .product-price span {
+      text-decoration: line-through;
+      color: #aaa;
+      font-size: 13px;
+      margin-right: 8px;
+    }
+
+    .product-description {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-add-cart {
+      width: 100%;
+      padding: 12px;
+      background: var(--dark-btn);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-add-cart:hover {
+      background: var(--dark-hover);
+    }
+
+    /* Quick Order Form Box */
+    .quick-order-section {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border: 1px solid #f0eada;
+    }
+
+    .section-title {
+      font-size: 16px;
+      color: var(--primary-gold);
+      margin-bottom: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: right;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-group input, .form-group textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--primary-gold);
+    }
+
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      grid-column: 1 / -1;
+      margin-top: 5px;
+      transition: background 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebc57;
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1062648226654073');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1062648226654073&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
-    <!-- قسم تفاصيل المنتج -->
-    <main class="product-detail-page">
-        <div class="container">
-            <div class="product-container">
-                
-                <!-- صورة المنتج -->
-                <div class="product-image-section">
-                    <img src="auravale-glow-serum.jpg" alt="سيروم النضارة الفوري من أورافيل" class="main-product-img">
-                </div>
+  <div class="announcement-bar">
+    🚚 شحن مجاني للطلبات المميزة | خصومات حصريّة لفترة محدودة!
+  </div>
 
-                <!-- معلومات المنتج -->
-                <div class="product-info-section">
-                    <span class="product-category">عناية بالبشرة</span>
-                    <h1>سيروم النضارة الفوري</h1>
-                    
-                    <p class="product-description">
-                        تركيبة فريدة ومبتكرة غنية بالفيتامينات والمعادن الأساسية لتجديد خلايا البشرة، محاربة علامات التعب، وإعادة الإشراقة والحيوية الطبيعية لبشرتك طوال اليوم.
-                    </p>
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">Auravale Cosmetics</a>
+      <a href="index.html" class="back-home">← العودة للرئيسية</a>
+    </div>
+  </header>
 
-                    <!-- الأسعار والخصم -->
-                    <div class="product-pricing" style="margin: 20px 0;">
-                        <span class="old-price" style="text-decoration: line-through; color: #888; margin-left: 15px; font-size: 1.1em;">530 ج.م</span>
-                        <span class="price" style="color: #e91e63; font-weight: bold; font-size: 1.5em;">400 ج.م</span>
-                        <span class="discount-badge" style="background-color: #ffebee; color: #c2185b; padding: 4px 8px; border-radius: 4px; font-size: 0.95em; margin-right: 10px;">خصم 25%</span>
-                    </div>
+  <!-- تفاصيل المنتج الأساسية -->
+  <div class="product-container">
+    <div class="product-image-box">
+      <img src="auravale-glow-serum.jpg" alt="عرض Shampoo وLotion روين الشعر">
+    </div>
+    <div class="product-details-box">
+      <h1 class="product-title">عرض Shampoo وLotion روين الشعر</h1>
+      <div class="rating-stars">★★★★★ <span>(5.0 / تقييمات العملاء)</span></div>
+      <div class="product-price">400 ج.م <span>530 ج.م</span></div>
+      <div class="product-description">
+        مجموعة متكاملة للعناية المكثفة بالشعر، تجمع بين الشامبو المغذي واللوشن الفعال لتقوية البصيلات، محاربة التساقط، ومنح شعرك الحيوية واللمان الطبيعي. مصمم بعناية ليناسب جميع أنواع الشعر.
+      </div>
+      <div class="action-buttons">
+        <button class="btn-add-cart" onclick="addToCart('عرض Shampoo وLotion روين الشعر', 400, 'auravale-glow-serum.jpg')">🛒 إضافة للسلة</button>
+      </div>
+    </div>
+  </div>
 
-                    <!-- مميزات سريعة للمنتج -->
-                    <ul class="product-features" style="list-style-type: disc; margin-right: 20px; margin-bottom: 20px; line-height: 1.8;">
-                        لإشراقة فورية وملمس ناعم كالحرير.
-                        مناسب لجميع أنواع البشرة.
-                        خالي من المواد الكيميائية الضارة.
-                    </ul>
+  <!-- نموذج الطلب السريع المباشر -->
+  <div class="quick-order-section">
+    <h2 class="section-title">طلب سريع عبر الواتساب ⚡</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="custName">الاسم بالكامل *</label>
+        <input type="text" id="custName" placeholder="أدخلي اسمك هنا" required>
+      </div>
+      <div class="form-group">
+        <label for="custPhone">رقم الهاتف (الواتساب) *</label>
+        <input type="tel" id="custPhone" placeholder="01xxxxxxxxx" required>
+      </div>
+      <div class="form-group full-width">
+        <label for="custAddress">العنوان التفصيلي *</label>
+        <textarea id="custAddress" rows="3" placeholder="المحافظة، المدينة، اسم الشارع، رقم العقار" required></textarea>
+      </div>
+      <button class="whatsapp-btn" onclick="sendDirectOrderToWhatsApp()">💬 تأكيد الطلب وإرساله عبر واتساب</button>
+    </div>
+  </div>
 
-                    <!-- زر الشراء أو الطلب -->
-                    <button class="add-to-cart-btn" style="padding: 12px 30px; font-size: 1.1em; cursor: pointer;">أضف إلى السلة</button>
-                </div>
+  <script>
+    const ORDERS_API_URL = "https://script.google.com/macros/s/AKfycbyWqQicfGGOROX6rVQg1HFWBBC1_qwdjdVaYZrzMyOEoD8HHh2f8lKMn7OWyV1loo_qGw/exec";
 
-            </div>
-        </div>
-    </main>
+    function getMetaTrackingData() {
+      const params = new URLSearchParams(window.location.search);
+      let fbclid = params.get('fbclid') || '';
+      let fbp = '';
+      let fbc = '';
 
+      const cookies = document.cookie.split(';').map(c => c.trim());
+      const fbpCookie = cookies.find(c => c.startsWith('_fbp='));
+      const fbcCookie = cookies.find(c => c.startsWith('_fbc='));
+      if (fbpCookie) fbp = decodeURIComponent(fbpCookie.substring(5));
+      if (fbcCookie) fbc = decodeURIComponent(fbcCookie.substring(5));
+
+      if (!fbc && fbclid) {
+        fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+      }
+
+      return { fbclid, fbp, fbc };
+    }
+
+    function createOrderId() {
+      return 'AV-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+    }
+
+    function logOrderToGoogleSheet(order) {
+      const tracking = getMetaTrackingData();
+      const params = new URLSearchParams({
+        order_id: order.orderId,
+        name: order.name || '',
+        phone: order.phone || '',
+        address: order.address || '',
+        product: order.product || '',
+        value: String(order.value || 0),
+        fbclid: tracking.fbclid,
+        fbp: tracking.fbp,
+        fbc: tracking.fbc
+      });
+
+      const beacon = new Image();
+      beacon.src = ORDERS_API_URL + '?' + params.toString();
+    }
+
+    const MY_WHATSAPP_NUMBER = "201106014523";
+
+    function addToCart(title, price, image) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let existingIndex = cart.findIndex(item => item.title === title);
+
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push({ title: title, price: price, image: image, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert("تمت إضافة المنتج إلى السلة بنجاح! 🛒");
+    }
+
+    function sendDirectOrderToWhatsApp() {
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+
+      if (!name || !phone || !address) {
+        alert("يرجى ملء جميع البيانات المطلوبة!");
+        return;
+      }
+
+      const orderId = createOrderId();
+      const productName = "عرض Shampoo وLotion روين الشعر";
+      const productPrice = 400;
+
+      let message = `مرحباً Auravale Cosmetics ✨\nأود طلب هذا المنتج:\n\n`;
+      message += `🆔 *رقم الطلب:* ${orderId}\n`;
+      message += `👤 *الاسم:* ${name}\n`;
+      message += `📞 *رقم الهاتف:* ${phone}\n`;
+      message += `📍 *العنوان:* ${address}\n\n`;
+      message += `🛍️ *المنتج:* ${productName} (x1)\n`;
+      message += `💰 *الإجمالي:* ${productPrice} ج.م`;
+
+      logOrderToGoogleSheet({
+        orderId: orderId,
+        name: name,
+        phone: phone,
+        address: address,
+        product: productName,
+        value: productPrice
+      });
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodedMessage}`;
+      window.open(whatsappURL, '_blank');
+    }
+  </script>
 </body>
 </html>
